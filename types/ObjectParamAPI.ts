@@ -2,6 +2,9 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { GetUserResponseModel } from '../models/GetUserResponseModel';
+import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
+import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
@@ -12,51 +15,6 @@ import { YtdStockdataResponseModelBodyItem } from '../models/YtdStockdataRespons
 
 import { ObservableDfsApi } from "./ObservableAPI";
 import { DfsApiRequestFactory, DfsApiResponseProcessor} from "../apis/DfsApi";
-
-export interface DfsApi1yearStockdataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DfsApi1yearStockdata
-     */
-    apiKey: string
-    /**
-     * 
-     * @type string
-     * @memberof DfsApi1yearStockdata
-     */
-    symbol: string
-}
-
-export interface DfsApi24hStockdataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DfsApi24hStockdata
-     */
-    apiKey: string
-    /**
-     * 
-     * @type string
-     * @memberof DfsApi24hStockdata
-     */
-    symbol: string
-}
-
-export interface DfsApi2yearsStockdataRequest {
-    /**
-     * 
-     * @type string
-     * @memberof DfsApi2yearsStockdata
-     */
-    apiKey: string
-    /**
-     * 
-     * @type string
-     * @memberof DfsApi2yearsStockdata
-     */
-    symbol: string
-}
 
 export interface DfsApiMtdStockdataRequest {
     /**
@@ -73,7 +31,61 @@ export interface DfsApiMtdStockdataRequest {
     symbol: string
 }
 
+export interface DfsApiOneYearStockdataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApioneYearStockdata
+     */
+    apiKey: string
+    /**
+     * 
+     * @type string
+     * @memberof DfsApioneYearStockdata
+     */
+    symbol: string
+}
+
 export interface DfsApiRootOptionsRequest {
+}
+
+export interface DfsApiTwentyfourHourStockdataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApitwentyfourHourStockdata
+     */
+    apiKey: string
+    /**
+     * 
+     * @type string
+     * @memberof DfsApitwentyfourHourStockdata
+     */
+    symbol: string
+}
+
+export interface DfsApiTwoYearsStockdataRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApitwoYearsStockdata
+     */
+    apiKey: string
+    /**
+     * 
+     * @type string
+     * @memberof DfsApitwoYearsStockdata
+     */
+    symbol: string
+}
+
+export interface DfsApiUserGetRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApiuserGet
+     */
+    apiKey: string
 }
 
 export interface DfsApiV1OptionsRequest {
@@ -136,6 +148,9 @@ export interface DfsApiV1StockdataSymbolYtdOptionsRequest {
     symbol: string
 }
 
+export interface DfsApiV1UserOptionsRequest {
+}
+
 export interface DfsApiYtdStockdataRequest {
     /**
      * 
@@ -161,27 +176,6 @@ export class ObjectDfsApi {
     /**
      * @param param the request object
      */
-    public 1yearStockdata(param: DfsApi1yearStockdataRequest, options?: Configuration): Promise<Model1yearStockdataResponseModel> {
-        return this.api.1yearStockdata(param.apiKey, param.symbol,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public 24hStockdata(param: DfsApi24hStockdataRequest, options?: Configuration): Promise<Model24hStockdataResponseModel> {
-        return this.api.24hStockdata(param.apiKey, param.symbol,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public 2yearsStockdata(param: DfsApi2yearsStockdataRequest, options?: Configuration): Promise<Model2yearsStockdataResponseModel> {
-        return this.api.2yearsStockdata(param.apiKey, param.symbol,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
     public mtdStockdata(param: DfsApiMtdStockdataRequest, options?: Configuration): Promise<MtdStockdataResponseModel> {
         return this.api.mtdStockdata(param.apiKey, param.symbol,  options).toPromise();
     }
@@ -189,8 +183,36 @@ export class ObjectDfsApi {
     /**
      * @param param the request object
      */
+    public oneYearStockdata(param: DfsApiOneYearStockdataRequest, options?: Configuration): Promise<Model1yearStockdataResponseModel> {
+        return this.api.oneYearStockdata(param.apiKey, param.symbol,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public rootOptions(param: DfsApiRootOptionsRequest = {}, options?: Configuration): Promise<void> {
         return this.api.rootOptions( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public twentyfourHourStockdata(param: DfsApiTwentyfourHourStockdataRequest, options?: Configuration): Promise<Model24hStockdataResponseModel> {
+        return this.api.twentyfourHourStockdata(param.apiKey, param.symbol,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public twoYearsStockdata(param: DfsApiTwoYearsStockdataRequest, options?: Configuration): Promise<Model2yearsStockdataResponseModel> {
+        return this.api.twoYearsStockdata(param.apiKey, param.symbol,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public userGet(param: DfsApiUserGetRequest, options?: Configuration): Promise<GetUserResponseModel> {
+        return this.api.userGet(param.apiKey,  options).toPromise();
     }
 
     /**
@@ -247,6 +269,13 @@ export class ObjectDfsApi {
      */
     public v1StockdataSymbolYtdOptions(param: DfsApiV1StockdataSymbolYtdOptionsRequest, options?: Configuration): Promise<void> {
         return this.api.v1StockdataSymbolYtdOptions(param.symbol,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public v1UserOptions(param: DfsApiV1UserOptionsRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.v1UserOptions( options).toPromise();
     }
 
     /**

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 DfsApi.md
 README.md
 apis/DfsApi.ts
@@ -12,6 +11,9 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/GetUserResponseModel.ts
+models/GetUserResponseModelBody.ts
+models/GetUserResponseModelBodyItem.ts
 models/Model1yearStockdataResponseModel.ts
 models/Model24hStockdataResponseModel.ts
 models/Model2yearsStockdataResponseModel.ts

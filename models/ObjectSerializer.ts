@@ -1,3 +1,6 @@
+export * from './GetUserResponseModel';
+export * from './GetUserResponseModelBody';
+export * from './GetUserResponseModelBodyItem';
 export * from './Model1yearStockdataResponseModel';
 export * from './Model24hStockdataResponseModel';
 export * from './Model2yearsStockdataResponseModel';
@@ -6,6 +9,9 @@ export * from './YtdStockdataResponseModel';
 export * from './YtdStockdataResponseModelBody';
 export * from './YtdStockdataResponseModelBodyItem';
 
+import { GetUserResponseModel } from './GetUserResponseModel';
+import { GetUserResponseModelBody } from './GetUserResponseModelBody';
+import { GetUserResponseModelBodyItem } from './GetUserResponseModelBodyItem';
 import { Model1yearStockdataResponseModel } from './Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from './Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from './Model2yearsStockdataResponseModel';
@@ -37,6 +43,9 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "GetUserResponseModel": GetUserResponseModel,
+    "GetUserResponseModelBody": GetUserResponseModelBody,
+    "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem,
     "Model1yearStockdataResponseModel": Model1yearStockdataResponseModel,
     "Model24hStockdataResponseModel": Model24hStockdataResponseModel,
     "Model2yearsStockdataResponseModel": Model2yearsStockdataResponseModel,

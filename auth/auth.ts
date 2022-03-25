@@ -22,9 +22,30 @@ export interface TokenProvider {
   getToken(): Promise<string> | string;
 }
 
+/**
+ * Applies apiKey authentication to the request context.
+ */
+export class ProddfsswisscognitoAuthorizer029DC9BBAuthentication implements SecurityAuthentication {
+    /**
+     * Configures this api key authentication with the necessary properties
+     *
+     * @param apiKey: The api key to be used for every request
+     */
+    public constructor(private apiKey: string) {}
+
+    public getName(): string {
+        return "proddfsswisscognitoAuthorizer029DC9BB";
+    }
+
+    public applySecurityAuthentication(context: RequestContext) {
+        context.setHeaderParam("apiKey", this.apiKey);
+    }
+}
+
 
 export type AuthMethods = {
     "default"?: SecurityAuthentication,
+    "proddfsswisscognitoAuthorizer029DC9BB"?: SecurityAuthentication
 }
 
 export type ApiKeyConfiguration = string;
@@ -34,6 +55,7 @@ export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
     "default"?: SecurityAuthentication,
+    "proddfsswisscognitoAuthorizer029DC9BB"?: ApiKeyConfiguration
 }
 
 /**
@@ -47,6 +69,12 @@ export function configureAuthMethods(config: AuthMethodsConfiguration | undefine
         return authMethods;
     }
     authMethods["default"] = config["default"]
+
+    if (config["proddfsswisscognitoAuthorizer029DC9BB"]) {
+        authMethods["proddfsswisscognitoAuthorizer029DC9BB"] = new ProddfsswisscognitoAuthorizer029DC9BBAuthentication(
+            config["proddfsswisscognitoAuthorizer029DC9BB"]
+        );
+    }
 
     return authMethods;
 }
