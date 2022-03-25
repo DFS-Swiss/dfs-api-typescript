@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 DfsApi.md
 README.md
 apis/DfsApi.ts
