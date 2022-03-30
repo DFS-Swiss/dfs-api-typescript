@@ -62,6 +62,32 @@ var DfsApiRequestFactory = (function (_super) {
     function DfsApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    DfsApiRequestFactory.prototype.listSymbols = function (apiKey, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var _config, localVarPath, requestContext, defaultAuth;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _config = _options || this.configuration;
+                        if (apiKey === null || apiKey === undefined) {
+                            throw new baseapi_1.RequiredError("DfsApi", "listSymbols", "apiKey");
+                        }
+                        localVarPath = '/v1/stockdata/list';
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+                        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        requestContext.setHeaderParam("apiKey", ObjectSerializer_1.ObjectSerializer.serialize(apiKey, "string", ""));
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
+                    case 1:
+                        _d.sent();
+                        _d.label = 2;
+                    case 2: return [2, requestContext];
+                }
+            });
+        });
+    };
     DfsApiRequestFactory.prototype.mtdStockdata = function (apiKey, symbol, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
@@ -246,6 +272,28 @@ var DfsApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         localVarPath = '/v1';
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.OPTIONS);
+                        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
+                    case 1:
+                        _d.sent();
+                        _d.label = 2;
+                    case 2: return [2, requestContext];
+                }
+            });
+        });
+    };
+    DfsApiRequestFactory.prototype.v1StockdataListOptions = function (_options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var _config, localVarPath, requestContext, defaultAuth;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _config = _options || this.configuration;
+                        localVarPath = '/v1/stockdata/list';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.OPTIONS);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
@@ -495,6 +543,84 @@ exports.DfsApiRequestFactory = DfsApiRequestFactory;
 var DfsApiResponseProcessor = (function () {
     function DfsApiResponseProcessor() {
     }
+    DfsApiResponseProcessor.prototype.listSymbols = function (response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, body, _j, _k, _l, _m, body, _o, _p, _q, _r, body, _s, _t, _u, _v, body, _w, _x, _y, _z, body, _0, _1, _2, _3, _4, _5;
+            return __generator(this, function (_6) {
+                switch (_6.label) {
+                    case 0:
+                        contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+                        if (!(0, util_1.isCodeInRange)("200", response.httpStatusCode)) return [3, 2];
+                        _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 1:
+                        body = _b.apply(_a, [_d.apply(_c, [_6.sent(), contentType]),
+                            "ListSymbols", ""]);
+                        return [2, body];
+                    case 2:
+                        if (!(0, util_1.isCodeInRange)("400", response.httpStatusCode)) return [3, 4];
+                        _f = (_e = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _h = (_g = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 3:
+                        body = _f.apply(_e, [_h.apply(_g, [_6.sent(), contentType]),
+                            "ListSymbols", ""]);
+                        throw new exception_1.ApiException(400, "400 response", body, response.headers);
+                    case 4:
+                        if (!(0, util_1.isCodeInRange)("401", response.httpStatusCode)) return [3, 6];
+                        _k = (_j = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _m = (_l = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 5:
+                        body = _k.apply(_j, [_m.apply(_l, [_6.sent(), contentType]),
+                            "ListSymbols", ""]);
+                        throw new exception_1.ApiException(401, "401 response", body, response.headers);
+                    case 6:
+                        if (!(0, util_1.isCodeInRange)("403", response.httpStatusCode)) return [3, 8];
+                        _p = (_o = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _r = (_q = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 7:
+                        body = _p.apply(_o, [_r.apply(_q, [_6.sent(), contentType]),
+                            "ListSymbols", ""]);
+                        throw new exception_1.ApiException(403, "403 response", body, response.headers);
+                    case 8:
+                        if (!(0, util_1.isCodeInRange)("404", response.httpStatusCode)) return [3, 10];
+                        _t = (_s = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _v = (_u = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 9:
+                        body = _t.apply(_s, [_v.apply(_u, [_6.sent(), contentType]),
+                            "ListSymbols", ""]);
+                        throw new exception_1.ApiException(404, "404 response", body, response.headers);
+                    case 10:
+                        if (!(0, util_1.isCodeInRange)("500", response.httpStatusCode)) return [3, 12];
+                        _x = (_w = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _z = (_y = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 11:
+                        body = _x.apply(_w, [_z.apply(_y, [_6.sent(), contentType]),
+                            "ListSymbols", ""]);
+                        throw new exception_1.ApiException(500, "500 response", body, response.headers);
+                    case 12:
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 14];
+                        _1 = (_0 = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _3 = (_2 = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 13:
+                        body = _1.apply(_0, [_3.apply(_2, [_6.sent(), contentType]),
+                            "ListSymbols", ""]);
+                        return [2, body];
+                    case 14:
+                        _4 = exception_1.ApiException.bind;
+                        _5 = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        return [4, response.getBodyAsAny()];
+                    case 15: throw new (_4.apply(exception_1.ApiException, _5.concat([_6.sent(), response.headers])))();
+                }
+            });
+        });
+    };
     DfsApiResponseProcessor.prototype.mtdStockdata = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, body, _j, _k, _l, _m, body, _o, _p, _q, _r, body, _s, _t, _u, _v, body, _w, _x, _y, _z, body, _0, _1, _2, _3, _4, _5;
@@ -913,6 +1039,33 @@ var DfsApiResponseProcessor = (function () {
         });
     };
     DfsApiResponseProcessor.prototype.v1Options = function (response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType, body, _a, _b, _c, _d, _e, _f;
+            return __generator(this, function (_g) {
+                switch (_g.label) {
+                    case 0:
+                        contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+                        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+                            return [2];
+                        }
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 2];
+                        _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 1:
+                        body = _b.apply(_a, [_d.apply(_c, [_g.sent(), contentType]),
+                            "void", ""]);
+                        return [2, body];
+                    case 2:
+                        _e = exception_1.ApiException.bind;
+                        _f = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        return [4, response.getBodyAsAny()];
+                    case 3: throw new (_e.apply(exception_1.ApiException, _f.concat([_g.sent(), response.headers])))();
+                }
+            });
+        });
+    };
+    DfsApiResponseProcessor.prototype.v1StockdataListOptions = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, _e, _f;
             return __generator(this, function (_g) {

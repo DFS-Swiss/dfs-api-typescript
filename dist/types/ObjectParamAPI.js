@@ -6,6 +6,9 @@ var ObjectDfsApi = (function () {
     function ObjectDfsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableDfsApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectDfsApi.prototype.listSymbols = function (param, options) {
+        return this.api.listSymbols(param.apiKey, options).toPromise();
+    };
     ObjectDfsApi.prototype.mtdStockdata = function (param, options) {
         return this.api.mtdStockdata(param.apiKey, param.symbol, options).toPromise();
     };
@@ -28,6 +31,10 @@ var ObjectDfsApi = (function () {
     ObjectDfsApi.prototype.v1Options = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.v1Options(options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1StockdataListOptions = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.v1StockdataListOptions(options).toPromise();
     };
     ObjectDfsApi.prototype.v1StockdataOptions = function (param, options) {
         if (param === void 0) { param = {}; }

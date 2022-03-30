@@ -5,13 +5,17 @@ import { Configuration} from '../configuration'
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
+import { ListSymbols } from '../models/ListSymbols';
+import { ListSymbolsBody } from '../models/ListSymbolsBody';
+import { ListSymbolsBodyData } from '../models/ListSymbolsBodyData';
+import { ListSymbolsBodyItems } from '../models/ListSymbolsBodyItems';
+import { ListSymbolsBodySymbol } from '../models/ListSymbolsBodySymbol';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { YtdStockdataResponseModelBody } from '../models/YtdStockdataResponseModelBody';
-import { YtdStockdataResponseModelBodyItem } from '../models/YtdStockdataResponseModelBodyItem';
 import { ObservableDfsApi } from './ObservableAPI';
 
 import { DfsApiRequestFactory, DfsApiResponseProcessor} from "../apis/DfsApi";
@@ -24,6 +28,14 @@ export class PromiseDfsApi {
         responseProcessor?: DfsApiResponseProcessor
     ) {
         this.api = new ObservableDfsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public listSymbols(apiKey: string, _options?: Configuration): Promise<ListSymbols> {
+        const result = this.api.listSymbols(apiKey, _options);
+        return result.toPromise();
     }
 
     /**
@@ -81,6 +93,13 @@ export class PromiseDfsApi {
      */
     public v1Options(_options?: Configuration): Promise<void> {
         const result = this.api.v1Options(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public v1StockdataListOptions(_options?: Configuration): Promise<void> {
+        const result = this.api.v1StockdataListOptions(_options);
         return result.toPromise();
     }
 

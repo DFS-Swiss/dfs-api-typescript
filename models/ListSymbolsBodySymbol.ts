@@ -10,38 +10,44 @@
  * Do not edit the class manually.
  */
 
-import { YtdStockdataResponseModelBody } from './YtdStockdataResponseModelBody';
 import { HttpFile } from '../http/http';
 
-export class Model1yearStockdataResponseModel {
-    'message': string;
-    'body'?: YtdStockdataResponseModelBody;
-    'statusCode'?: number;
+export class ListSymbolsBodySymbol {
+    'symbol': string;
+    'displayName': string;
+    'description': string;
+    'id': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "message",
-            "baseName": "message",
+            "name": "symbol",
+            "baseName": "symbol",
             "type": "string",
             "format": ""
         },
         {
-            "name": "body",
-            "baseName": "body",
-            "type": "YtdStockdataResponseModelBody",
+            "name": "displayName",
+            "baseName": "displayName",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "statusCode",
-            "baseName": "statusCode",
-            "type": "number",
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "_id",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return Model1yearStockdataResponseModel.attributeTypeMap;
+        return ListSymbolsBodySymbol.attributeTypeMap;
     }
 
     public constructor() {

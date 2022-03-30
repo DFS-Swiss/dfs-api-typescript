@@ -1,6 +1,10 @@
-import { ListSymbolsBodyData } from './ListSymbolsBodyData';
-export declare class YtdStockdataResponseModelBody {
-    'item'?: ListSymbolsBodyData;
+export declare class ListSymbolsBodyData {
+    'symbol': string;
+    'price': number;
+    'name': string;
+    'currency': string;
+    'time': Date;
+    'id': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

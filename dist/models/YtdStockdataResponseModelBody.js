@@ -12,7 +12,7 @@ var YtdStockdataResponseModelBody = (function () {
         {
             "name": "item",
             "baseName": "item",
-            "type": "YtdStockdataResponseModelBodyItem",
+            "type": "ListSymbolsBodyData",
             "format": ""
         }
     ];

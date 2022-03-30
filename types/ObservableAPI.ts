@@ -6,13 +6,17 @@ import {mergeMap, map} from  '../rxjsStub';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
+import { ListSymbols } from '../models/ListSymbols';
+import { ListSymbolsBody } from '../models/ListSymbolsBody';
+import { ListSymbolsBodyData } from '../models/ListSymbolsBodyData';
+import { ListSymbolsBodyItems } from '../models/ListSymbolsBodyItems';
+import { ListSymbolsBodySymbol } from '../models/ListSymbolsBodySymbol';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { YtdStockdataResponseModelBody } from '../models/YtdStockdataResponseModelBody';
-import { YtdStockdataResponseModelBodyItem } from '../models/YtdStockdataResponseModelBodyItem';
 
 import { DfsApiRequestFactory, DfsApiResponseProcessor} from "../apis/DfsApi";
 export class ObservableDfsApi {
@@ -28,6 +32,28 @@ export class ObservableDfsApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new DfsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new DfsApiResponseProcessor();
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public listSymbols(apiKey: string, _options?: Configuration): Observable<ListSymbols> {
+        const requestContextPromise = this.requestFactory.listSymbols(apiKey, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.listSymbols(rsp)));
+            }));
     }
 
     /**
@@ -183,6 +209,27 @@ export class ObservableDfsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1Options(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public v1StockdataListOptions(_options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.v1StockdataListOptions(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1StockdataListOptions(rsp)));
             }));
     }
 

@@ -6,6 +6,10 @@ var PromiseDfsApi = (function () {
     function PromiseDfsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableDfsApi(configuration, requestFactory, responseProcessor);
     }
+    PromiseDfsApi.prototype.listSymbols = function (apiKey, _options) {
+        var result = this.api.listSymbols(apiKey, _options);
+        return result.toPromise();
+    };
     PromiseDfsApi.prototype.mtdStockdata = function (apiKey, symbol, _options) {
         var result = this.api.mtdStockdata(apiKey, symbol, _options);
         return result.toPromise();
@@ -32,6 +36,10 @@ var PromiseDfsApi = (function () {
     };
     PromiseDfsApi.prototype.v1Options = function (_options) {
         var result = this.api.v1Options(_options);
+        return result.toPromise();
+    };
+    PromiseDfsApi.prototype.v1StockdataListOptions = function (_options) {
+        var result = this.api.v1StockdataListOptions(_options);
         return result.toPromise();
     };
     PromiseDfsApi.prototype.v1StockdataOptions = function (_options) {

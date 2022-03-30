@@ -1,24 +1,32 @@
 export * from './GetUserResponseModel';
 export * from './GetUserResponseModelBody';
 export * from './GetUserResponseModelBodyItem';
+export * from './ListSymbols';
+export * from './ListSymbolsBody';
+export * from './ListSymbolsBodyData';
+export * from './ListSymbolsBodyItems';
+export * from './ListSymbolsBodySymbol';
 export * from './Model1yearStockdataResponseModel';
 export * from './Model24hStockdataResponseModel';
 export * from './Model2yearsStockdataResponseModel';
 export * from './MtdStockdataResponseModel';
 export * from './YtdStockdataResponseModel';
 export * from './YtdStockdataResponseModelBody';
-export * from './YtdStockdataResponseModelBodyItem';
 
 import { GetUserResponseModel } from './GetUserResponseModel';
 import { GetUserResponseModelBody } from './GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from './GetUserResponseModelBodyItem';
+import { ListSymbols } from './ListSymbols';
+import { ListSymbolsBody } from './ListSymbolsBody';
+import { ListSymbolsBodyData } from './ListSymbolsBodyData';
+import { ListSymbolsBodyItems } from './ListSymbolsBodyItems';
+import { ListSymbolsBodySymbol } from './ListSymbolsBodySymbol';
 import { Model1yearStockdataResponseModel } from './Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from './Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from './Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from './MtdStockdataResponseModel';
 import { YtdStockdataResponseModel } from './YtdStockdataResponseModel';
 import { YtdStockdataResponseModelBody } from './YtdStockdataResponseModelBody';
-import { YtdStockdataResponseModelBodyItem } from './YtdStockdataResponseModelBodyItem';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -46,13 +54,17 @@ let typeMap: {[index: string]: any} = {
     "GetUserResponseModel": GetUserResponseModel,
     "GetUserResponseModelBody": GetUserResponseModelBody,
     "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem,
+    "ListSymbols": ListSymbols,
+    "ListSymbolsBody": ListSymbolsBody,
+    "ListSymbolsBodyData": ListSymbolsBodyData,
+    "ListSymbolsBodyItems": ListSymbolsBodyItems,
+    "ListSymbolsBodySymbol": ListSymbolsBodySymbol,
     "Model1yearStockdataResponseModel": Model1yearStockdataResponseModel,
     "Model24hStockdataResponseModel": Model24hStockdataResponseModel,
     "Model2yearsStockdataResponseModel": Model2yearsStockdataResponseModel,
     "MtdStockdataResponseModel": MtdStockdataResponseModel,
     "YtdStockdataResponseModel": YtdStockdataResponseModel,
     "YtdStockdataResponseModelBody": YtdStockdataResponseModelBody,
-    "YtdStockdataResponseModelBodyItem": YtdStockdataResponseModelBodyItem,
 }
 
 export class ObjectSerializer {

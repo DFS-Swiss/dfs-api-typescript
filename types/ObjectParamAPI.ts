@@ -5,16 +5,29 @@ import { Configuration} from '../configuration'
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
+import { ListSymbols } from '../models/ListSymbols';
+import { ListSymbolsBody } from '../models/ListSymbolsBody';
+import { ListSymbolsBodyData } from '../models/ListSymbolsBodyData';
+import { ListSymbolsBodyItems } from '../models/ListSymbolsBodyItems';
+import { ListSymbolsBodySymbol } from '../models/ListSymbolsBodySymbol';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { YtdStockdataResponseModelBody } from '../models/YtdStockdataResponseModelBody';
-import { YtdStockdataResponseModelBodyItem } from '../models/YtdStockdataResponseModelBodyItem';
 
 import { ObservableDfsApi } from "./ObservableAPI";
 import { DfsApiRequestFactory, DfsApiResponseProcessor} from "../apis/DfsApi";
+
+export interface DfsApiListSymbolsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApilistSymbols
+     */
+    apiKey: string
+}
 
 export interface DfsApiMtdStockdataRequest {
     /**
@@ -89,6 +102,9 @@ export interface DfsApiUserGetRequest {
 }
 
 export interface DfsApiV1OptionsRequest {
+}
+
+export interface DfsApiV1StockdataListOptionsRequest {
 }
 
 export interface DfsApiV1StockdataOptionsRequest {
@@ -176,6 +192,13 @@ export class ObjectDfsApi {
     /**
      * @param param the request object
      */
+    public listSymbols(param: DfsApiListSymbolsRequest, options?: Configuration): Promise<ListSymbols> {
+        return this.api.listSymbols(param.apiKey,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public mtdStockdata(param: DfsApiMtdStockdataRequest, options?: Configuration): Promise<MtdStockdataResponseModel> {
         return this.api.mtdStockdata(param.apiKey, param.symbol,  options).toPromise();
     }
@@ -220,6 +243,13 @@ export class ObjectDfsApi {
      */
     public v1Options(param: DfsApiV1OptionsRequest = {}, options?: Configuration): Promise<void> {
         return this.api.v1Options( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public v1StockdataListOptions(param: DfsApiV1StockdataListOptionsRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.v1StockdataListOptions( options).toPromise();
     }
 
     /**

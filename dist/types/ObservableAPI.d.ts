@@ -1,6 +1,7 @@
 import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
+import { ListSymbols } from '../models/ListSymbols';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
@@ -12,6 +13,7 @@ export declare class ObservableDfsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
+    listSymbols(apiKey: string, _options?: Configuration): Observable<ListSymbols>;
     mtdStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<MtdStockdataResponseModel>;
     oneYearStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<Model1yearStockdataResponseModel>;
     rootOptions(_options?: Configuration): Observable<void>;
@@ -19,6 +21,7 @@ export declare class ObservableDfsApi {
     twoYearsStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<Model2yearsStockdataResponseModel>;
     userGet(apiKey: string, _options?: Configuration): Observable<GetUserResponseModel>;
     v1Options(_options?: Configuration): Observable<void>;
+    v1StockdataListOptions(_options?: Configuration): Observable<void>;
     v1StockdataOptions(_options?: Configuration): Observable<void>;
     v1StockdataSymbol1yearOptions(symbol: string, _options?: Configuration): Observable<void>;
     v1StockdataSymbol24hOptions(symbol: string, _options?: Configuration): Observable<void>;

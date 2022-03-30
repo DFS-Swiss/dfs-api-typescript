@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 DfsApi.md
 README.md
 apis/DfsApi.ts
@@ -14,6 +15,11 @@ middleware.ts
 models/GetUserResponseModel.ts
 models/GetUserResponseModelBody.ts
 models/GetUserResponseModelBodyItem.ts
+models/ListSymbols.ts
+models/ListSymbolsBody.ts
+models/ListSymbolsBodyData.ts
+models/ListSymbolsBodyItems.ts
+models/ListSymbolsBodySymbol.ts
 models/Model1yearStockdataResponseModel.ts
 models/Model24hStockdataResponseModel.ts
 models/Model2yearsStockdataResponseModel.ts
@@ -21,7 +27,6 @@ models/MtdStockdataResponseModel.ts
 models/ObjectSerializer.ts
 models/YtdStockdataResponseModel.ts
 models/YtdStockdataResponseModelBody.ts
-models/YtdStockdataResponseModelBodyItem.ts
 models/all.ts
 package.json
 rxjsStub.ts
