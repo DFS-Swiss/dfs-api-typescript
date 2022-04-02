@@ -10,9 +10,9 @@ var YtdStockdataResponseModelBody = (function () {
     YtdStockdataResponseModelBody.discriminator = undefined;
     YtdStockdataResponseModelBody.attributeTypeMap = [
         {
-            "name": "item",
-            "baseName": "item",
-            "type": "ListSymbolsBodyData",
+            "name": "items",
+            "baseName": "items",
+            "type": "Array<ListSymbolsBodyData>",
             "format": ""
         }
     ];

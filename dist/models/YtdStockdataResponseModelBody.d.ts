@@ -1,6 +1,6 @@
 import { ListSymbolsBodyData } from './ListSymbolsBodyData';
 export declare class YtdStockdataResponseModelBody {
-    'item'?: ListSymbolsBodyData;
+    'items'?: Array<ListSymbolsBodyData>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
