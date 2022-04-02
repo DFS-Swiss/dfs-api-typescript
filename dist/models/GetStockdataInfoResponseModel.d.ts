@@ -1,8 +1,8 @@
-import { GetStockdataInfoResponseModelBodyItem } from './GetStockdataInfoResponseModelBodyItem';
-import { ListSymbolsBodyData } from './ListSymbolsBodyData';
-export declare class ListSymbolsBodyItems {
-    'symbol': GetStockdataInfoResponseModelBodyItem;
-    'data': Array<ListSymbolsBodyData>;
+import { GetStockdataInfoResponseModelBody } from './GetStockdataInfoResponseModelBody';
+export declare class GetStockdataInfoResponseModel {
+    'message': string;
+    'body'?: GetStockdataInfoResponseModelBody;
+    'statusCode'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

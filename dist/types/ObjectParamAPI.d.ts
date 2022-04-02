@@ -1,4 +1,5 @@
 import { Configuration } from '../configuration';
+import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { ListSymbols } from '../models/ListSymbols';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
@@ -7,6 +8,10 @@ import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdat
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { DfsApiRequestFactory, DfsApiResponseProcessor } from "../apis/DfsApi";
+export interface DfsApiGetStockdataInfoRequest {
+    symbol: string;
+    apiKey: string;
+}
 export interface DfsApiListSymbolsRequest {
     apiKey: string;
 }
@@ -64,6 +69,7 @@ export interface DfsApiYtdStockdataRequest {
 export declare class ObjectDfsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
+    getStockdataInfo(param: DfsApiGetStockdataInfoRequest, options?: Configuration): Promise<GetStockdataInfoResponseModel>;
     listSymbols(param: DfsApiListSymbolsRequest, options?: Configuration): Promise<ListSymbols>;
     mtdStockdata(param: DfsApiMtdStockdataRequest, options?: Configuration): Promise<MtdStockdataResponseModel>;
     oneYearStockdata(param: DfsApiOneYearStockdataRequest, options?: Configuration): Promise<Model1yearStockdataResponseModel>;

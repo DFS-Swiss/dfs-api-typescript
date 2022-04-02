@@ -6,6 +6,9 @@ var ObjectDfsApi = (function () {
     function ObjectDfsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableDfsApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectDfsApi.prototype.getStockdataInfo = function (param, options) {
+        return this.api.getStockdataInfo(param.symbol, param.apiKey, options).toPromise();
+    };
     ObjectDfsApi.prototype.listSymbols = function (param, options) {
         return this.api.listSymbols(param.apiKey, options).toPromise();
     };

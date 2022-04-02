@@ -6,6 +6,10 @@ var PromiseDfsApi = (function () {
     function PromiseDfsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableDfsApi(configuration, requestFactory, responseProcessor);
     }
+    PromiseDfsApi.prototype.getStockdataInfo = function (symbol, apiKey, _options) {
+        var result = this.api.getStockdataInfo(symbol, apiKey, _options);
+        return result.toPromise();
+    };
     PromiseDfsApi.prototype.listSymbols = function (apiKey, _options) {
         var result = this.api.listSymbols(apiKey, _options);
         return result.toPromise();

@@ -1,3 +1,6 @@
+export * from './GetStockdataInfoResponseModel';
+export * from './GetStockdataInfoResponseModelBody';
+export * from './GetStockdataInfoResponseModelBodyItem';
 export * from './GetUserResponseModel';
 export * from './GetUserResponseModelBody';
 export * from './GetUserResponseModelBodyItem';
@@ -5,7 +8,6 @@ export * from './ListSymbols';
 export * from './ListSymbolsBody';
 export * from './ListSymbolsBodyData';
 export * from './ListSymbolsBodyItems';
-export * from './ListSymbolsBodySymbol';
 export * from './Model1yearStockdataResponseModel';
 export * from './Model24hStockdataResponseModel';
 export * from './Model2yearsStockdataResponseModel';
@@ -13,6 +15,9 @@ export * from './MtdStockdataResponseModel';
 export * from './YtdStockdataResponseModel';
 export * from './YtdStockdataResponseModelBody';
 
+import { GetStockdataInfoResponseModel } from './GetStockdataInfoResponseModel';
+import { GetStockdataInfoResponseModelBody } from './GetStockdataInfoResponseModelBody';
+import { GetStockdataInfoResponseModelBodyItem } from './GetStockdataInfoResponseModelBodyItem';
 import { GetUserResponseModel } from './GetUserResponseModel';
 import { GetUserResponseModelBody } from './GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from './GetUserResponseModelBodyItem';
@@ -20,7 +25,6 @@ import { ListSymbols } from './ListSymbols';
 import { ListSymbolsBody } from './ListSymbolsBody';
 import { ListSymbolsBodyData } from './ListSymbolsBodyData';
 import { ListSymbolsBodyItems } from './ListSymbolsBodyItems';
-import { ListSymbolsBodySymbol } from './ListSymbolsBodySymbol';
 import { Model1yearStockdataResponseModel } from './Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from './Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from './Model2yearsStockdataResponseModel';
@@ -51,6 +55,9 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel,
+    "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody,
+    "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem,
     "GetUserResponseModel": GetUserResponseModel,
     "GetUserResponseModelBody": GetUserResponseModelBody,
     "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem,
@@ -58,7 +65,6 @@ let typeMap: {[index: string]: any} = {
     "ListSymbolsBody": ListSymbolsBody,
     "ListSymbolsBodyData": ListSymbolsBodyData,
     "ListSymbolsBodyItems": ListSymbolsBodyItems,
-    "ListSymbolsBodySymbol": ListSymbolsBodySymbol,
     "Model1yearStockdataResponseModel": Model1yearStockdataResponseModel,
     "Model24hStockdataResponseModel": Model24hStockdataResponseModel,
     "Model2yearsStockdataResponseModel": Model2yearsStockdataResponseModel,

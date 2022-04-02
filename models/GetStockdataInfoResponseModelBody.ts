@@ -10,38 +10,24 @@
  * Do not edit the class manually.
  */
 
-import { ListSymbolsBody } from './ListSymbolsBody';
+import { GetStockdataInfoResponseModelBodyItem } from './GetStockdataInfoResponseModelBodyItem';
 import { HttpFile } from '../http/http';
 
-export class ListSymbols {
-    'message': string;
-    'body'?: ListSymbolsBody;
-    'statusCode'?: number;
+export class GetStockdataInfoResponseModelBody {
+    'item'?: GetStockdataInfoResponseModelBodyItem;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "message",
-            "baseName": "message",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "body",
-            "baseName": "body",
-            "type": "ListSymbolsBody",
-            "format": ""
-        },
-        {
-            "name": "statusCode",
-            "baseName": "statusCode",
-            "type": "number",
+            "name": "item",
+            "baseName": "item",
+            "type": "GetStockdataInfoResponseModelBodyItem",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ListSymbols.attributeTypeMap;
+        return GetStockdataInfoResponseModelBody.attributeTypeMap;
     }
 
     public constructor() {

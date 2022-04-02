@@ -1,4 +1,5 @@
 import { Configuration } from '../configuration';
+import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { ListSymbols } from '../models/ListSymbols';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
@@ -10,6 +11,7 @@ import { DfsApiRequestFactory, DfsApiResponseProcessor } from "../apis/DfsApi";
 export declare class PromiseDfsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
+    getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataInfoResponseModel>;
     listSymbols(apiKey: string, _options?: Configuration): Promise<ListSymbols>;
     mtdStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<MtdStockdataResponseModel>;
     oneYearStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<Model1yearStockdataResponseModel>;

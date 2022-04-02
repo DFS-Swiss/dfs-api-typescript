@@ -1,5 +1,6 @@
 import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
+import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { ListSymbols } from '../models/ListSymbols';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
@@ -13,6 +14,7 @@ export declare class ObservableDfsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
+    getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Observable<GetStockdataInfoResponseModel>;
     listSymbols(apiKey: string, _options?: Configuration): Observable<ListSymbols>;
     mtdStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<MtdStockdataResponseModel>;
     oneYearStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<Model1yearStockdataResponseModel>;

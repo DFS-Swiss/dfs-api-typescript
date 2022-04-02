@@ -11,6 +11,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
+__exportStar(require("./GetStockdataInfoResponseModel"), exports);
+__exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
+__exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);
 __exportStar(require("./GetUserResponseModel"), exports);
 __exportStar(require("./GetUserResponseModelBody"), exports);
 __exportStar(require("./GetUserResponseModelBodyItem"), exports);
@@ -18,13 +21,15 @@ __exportStar(require("./ListSymbols"), exports);
 __exportStar(require("./ListSymbolsBody"), exports);
 __exportStar(require("./ListSymbolsBodyData"), exports);
 __exportStar(require("./ListSymbolsBodyItems"), exports);
-__exportStar(require("./ListSymbolsBodySymbol"), exports);
 __exportStar(require("./Model1yearStockdataResponseModel"), exports);
 __exportStar(require("./Model24hStockdataResponseModel"), exports);
 __exportStar(require("./Model2yearsStockdataResponseModel"), exports);
 __exportStar(require("./MtdStockdataResponseModel"), exports);
 __exportStar(require("./YtdStockdataResponseModel"), exports);
 __exportStar(require("./YtdStockdataResponseModelBody"), exports);
+var GetStockdataInfoResponseModel_1 = require("./GetStockdataInfoResponseModel");
+var GetStockdataInfoResponseModelBody_1 = require("./GetStockdataInfoResponseModelBody");
+var GetStockdataInfoResponseModelBodyItem_1 = require("./GetStockdataInfoResponseModelBodyItem");
 var GetUserResponseModel_1 = require("./GetUserResponseModel");
 var GetUserResponseModelBody_1 = require("./GetUserResponseModelBody");
 var GetUserResponseModelBodyItem_1 = require("./GetUserResponseModelBodyItem");
@@ -32,7 +37,6 @@ var ListSymbols_1 = require("./ListSymbols");
 var ListSymbolsBody_1 = require("./ListSymbolsBody");
 var ListSymbolsBodyData_1 = require("./ListSymbolsBodyData");
 var ListSymbolsBodyItems_1 = require("./ListSymbolsBodyItems");
-var ListSymbolsBodySymbol_1 = require("./ListSymbolsBodySymbol");
 var Model1yearStockdataResponseModel_1 = require("./Model1yearStockdataResponseModel");
 var Model24hStockdataResponseModel_1 = require("./Model24hStockdataResponseModel");
 var Model2yearsStockdataResponseModel_1 = require("./Model2yearsStockdataResponseModel");
@@ -56,6 +60,9 @@ var supportedMediaTypes = {
 };
 var enumsMap = new Set([]);
 var typeMap = {
+    "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel_1.GetStockdataInfoResponseModel,
+    "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody_1.GetStockdataInfoResponseModelBody,
+    "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem_1.GetStockdataInfoResponseModelBodyItem,
     "GetUserResponseModel": GetUserResponseModel_1.GetUserResponseModel,
     "GetUserResponseModelBody": GetUserResponseModelBody_1.GetUserResponseModelBody,
     "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem_1.GetUserResponseModelBodyItem,
@@ -63,7 +70,6 @@ var typeMap = {
     "ListSymbolsBody": ListSymbolsBody_1.ListSymbolsBody,
     "ListSymbolsBodyData": ListSymbolsBodyData_1.ListSymbolsBodyData,
     "ListSymbolsBodyItems": ListSymbolsBodyItems_1.ListSymbolsBodyItems,
-    "ListSymbolsBodySymbol": ListSymbolsBodySymbol_1.ListSymbolsBodySymbol,
     "Model1yearStockdataResponseModel": Model1yearStockdataResponseModel_1.Model1yearStockdataResponseModel,
     "Model24hStockdataResponseModel": Model24hStockdataResponseModel_1.Model24hStockdataResponseModel,
     "Model2yearsStockdataResponseModel": Model2yearsStockdataResponseModel_1.Model2yearsStockdataResponseModel,

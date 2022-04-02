@@ -2,6 +2,9 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
+import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
+import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
@@ -9,7 +12,6 @@ import { ListSymbols } from '../models/ListSymbols';
 import { ListSymbolsBody } from '../models/ListSymbolsBody';
 import { ListSymbolsBodyData } from '../models/ListSymbolsBodyData';
 import { ListSymbolsBodyItems } from '../models/ListSymbolsBodyItems';
-import { ListSymbolsBodySymbol } from '../models/ListSymbolsBodySymbol';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
@@ -19,6 +21,21 @@ import { YtdStockdataResponseModelBody } from '../models/YtdStockdataResponseMod
 
 import { ObservableDfsApi } from "./ObservableAPI";
 import { DfsApiRequestFactory, DfsApiResponseProcessor} from "../apis/DfsApi";
+
+export interface DfsApiGetStockdataInfoRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApigetStockdataInfo
+     */
+    symbol: string
+    /**
+     * 
+     * @type string
+     * @memberof DfsApigetStockdataInfo
+     */
+    apiKey: string
+}
 
 export interface DfsApiListSymbolsRequest {
     /**
@@ -187,6 +204,13 @@ export class ObjectDfsApi {
 
     public constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor) {
         this.api = new ObservableDfsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public getStockdataInfo(param: DfsApiGetStockdataInfoRequest, options?: Configuration): Promise<GetStockdataInfoResponseModel> {
+        return this.api.getStockdataInfo(param.symbol, param.apiKey,  options).toPromise();
     }
 
     /**

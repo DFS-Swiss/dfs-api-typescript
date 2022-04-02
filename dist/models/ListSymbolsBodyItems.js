@@ -12,7 +12,7 @@ var ListSymbolsBodyItems = (function () {
         {
             "name": "symbol",
             "baseName": "symbol",
-            "type": "ListSymbolsBodySymbol",
+            "type": "GetStockdataInfoResponseModelBodyItem",
             "format": ""
         },
         {

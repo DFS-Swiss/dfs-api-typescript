@@ -2,6 +2,9 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
+import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
+import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
@@ -9,7 +12,6 @@ import { ListSymbols } from '../models/ListSymbols';
 import { ListSymbolsBody } from '../models/ListSymbolsBody';
 import { ListSymbolsBodyData } from '../models/ListSymbolsBodyData';
 import { ListSymbolsBodyItems } from '../models/ListSymbolsBodyItems';
-import { ListSymbolsBodySymbol } from '../models/ListSymbolsBodySymbol';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
@@ -28,6 +30,15 @@ export class PromiseDfsApi {
         responseProcessor?: DfsApiResponseProcessor
     ) {
         this.api = new ObservableDfsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param symbol 
+     * @param apiKey 
+     */
+    public getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataInfoResponseModel> {
+        const result = this.api.getStockdataInfo(symbol, apiKey, _options);
+        return result.toPromise();
     }
 
     /**

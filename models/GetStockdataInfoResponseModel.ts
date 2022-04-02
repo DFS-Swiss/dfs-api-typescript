@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { ListSymbolsBody } from './ListSymbolsBody';
+import { GetStockdataInfoResponseModelBody } from './GetStockdataInfoResponseModelBody';
 import { HttpFile } from '../http/http';
 
-export class ListSymbols {
+export class GetStockdataInfoResponseModel {
     'message': string;
-    'body'?: ListSymbolsBody;
+    'body'?: GetStockdataInfoResponseModelBody;
     'statusCode'?: number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -30,7 +30,7 @@ export class ListSymbols {
         {
             "name": "body",
             "baseName": "body",
-            "type": "ListSymbolsBody",
+            "type": "GetStockdataInfoResponseModelBody",
             "format": ""
         },
         {
@@ -41,7 +41,7 @@ export class ListSymbols {
         }    ];
 
     static getAttributeTypeMap() {
-        return ListSymbols.attributeTypeMap;
+        return GetStockdataInfoResponseModel.attributeTypeMap;
     }
 
     public constructor() {

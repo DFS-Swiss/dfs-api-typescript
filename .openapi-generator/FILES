@@ -12,6 +12,9 @@ http/http.ts
 http/isomorphic-fetch.ts
 index.ts
 middleware.ts
+models/GetStockdataInfoResponseModel.ts
+models/GetStockdataInfoResponseModelBody.ts
+models/GetStockdataInfoResponseModelBodyItem.ts
 models/GetUserResponseModel.ts
 models/GetUserResponseModelBody.ts
 models/GetUserResponseModelBodyItem.ts
@@ -19,7 +22,6 @@ models/ListSymbols.ts
 models/ListSymbolsBody.ts
 models/ListSymbolsBodyData.ts
 models/ListSymbolsBodyItems.ts
-models/ListSymbolsBodySymbol.ts
 models/Model1yearStockdataResponseModel.ts
 models/Model24hStockdataResponseModel.ts
 models/Model2yearsStockdataResponseModel.ts
