@@ -5,6 +5,8 @@ import { Configuration} from '../configuration'
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
+import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
+import { GetStockdataLatestResponseModelBody } from '../models/GetStockdataLatestResponseModelBody';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
@@ -33,6 +35,21 @@ export interface DfsApiGetStockdataInfoRequest {
      * 
      * @type string
      * @memberof DfsApigetStockdataInfo
+     */
+    apiKey: string
+}
+
+export interface DfsApiGetStockdataLatestRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApigetStockdataLatest
+     */
+    symbol: string
+    /**
+     * 
+     * @type string
+     * @memberof DfsApigetStockdataLatest
      */
     apiKey: string
 }
@@ -154,6 +171,15 @@ export interface DfsApiV1StockdataSymbol2yearsOptionsRequest {
     symbol: string
 }
 
+export interface DfsApiV1StockdataSymbolLatestOptionsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApiv1StockdataSymbolLatestOptions
+     */
+    symbol: string
+}
+
 export interface DfsApiV1StockdataSymbolMtdOptionsRequest {
     /**
      * 
@@ -211,6 +237,13 @@ export class ObjectDfsApi {
      */
     public getStockdataInfo(param: DfsApiGetStockdataInfoRequest, options?: Configuration): Promise<GetStockdataInfoResponseModel> {
         return this.api.getStockdataInfo(param.symbol, param.apiKey,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public getStockdataLatest(param: DfsApiGetStockdataLatestRequest, options?: Configuration): Promise<GetStockdataLatestResponseModel> {
+        return this.api.getStockdataLatest(param.symbol, param.apiKey,  options).toPromise();
     }
 
     /**
@@ -302,6 +335,13 @@ export class ObjectDfsApi {
      */
     public v1StockdataSymbol2yearsOptions(param: DfsApiV1StockdataSymbol2yearsOptionsRequest, options?: Configuration): Promise<void> {
         return this.api.v1StockdataSymbol2yearsOptions(param.symbol,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public v1StockdataSymbolLatestOptions(param: DfsApiV1StockdataSymbolLatestOptionsRequest, options?: Configuration): Promise<void> {
+        return this.api.v1StockdataSymbolLatestOptions(param.symbol,  options).toPromise();
     }
 
     /**

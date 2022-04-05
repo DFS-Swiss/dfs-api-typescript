@@ -1,6 +1,8 @@
 export * from './GetStockdataInfoResponseModel';
 export * from './GetStockdataInfoResponseModelBody';
 export * from './GetStockdataInfoResponseModelBodyItem';
+export * from './GetStockdataLatestResponseModel';
+export * from './GetStockdataLatestResponseModelBody';
 export * from './GetUserResponseModel';
 export * from './GetUserResponseModelBody';
 export * from './GetUserResponseModelBodyItem';
@@ -18,6 +20,8 @@ export * from './YtdStockdataResponseModelBody';
 import { GetStockdataInfoResponseModel } from './GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from './GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from './GetStockdataInfoResponseModelBodyItem';
+import { GetStockdataLatestResponseModel } from './GetStockdataLatestResponseModel';
+import { GetStockdataLatestResponseModelBody } from './GetStockdataLatestResponseModelBody';
 import { GetUserResponseModel } from './GetUserResponseModel';
 import { GetUserResponseModelBody } from './GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from './GetUserResponseModelBodyItem';
@@ -58,6 +62,8 @@ let typeMap: {[index: string]: any} = {
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem,
+    "GetStockdataLatestResponseModel": GetStockdataLatestResponseModel,
+    "GetStockdataLatestResponseModelBody": GetStockdataLatestResponseModelBody,
     "GetUserResponseModel": GetUserResponseModel,
     "GetUserResponseModelBody": GetUserResponseModelBody,
     "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem,

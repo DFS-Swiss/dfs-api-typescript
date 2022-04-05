@@ -13,6 +13,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./GetStockdataInfoResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);
+__exportStar(require("./GetStockdataLatestResponseModel"), exports);
+__exportStar(require("./GetStockdataLatestResponseModelBody"), exports);
 __exportStar(require("./GetUserResponseModel"), exports);
 __exportStar(require("./GetUserResponseModelBody"), exports);
 __exportStar(require("./GetUserResponseModelBodyItem"), exports);

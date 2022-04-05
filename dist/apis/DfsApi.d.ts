@@ -2,6 +2,7 @@ import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
+import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { ListSymbols } from '../models/ListSymbols';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
@@ -11,6 +12,7 @@ import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 export declare class DfsApiRequestFactory extends BaseAPIRequestFactory {
     getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<RequestContext>;
+    getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Promise<RequestContext>;
     listSymbols(apiKey: string, _options?: Configuration): Promise<RequestContext>;
     mtdStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<RequestContext>;
     oneYearStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<RequestContext>;
@@ -24,6 +26,7 @@ export declare class DfsApiRequestFactory extends BaseAPIRequestFactory {
     v1StockdataSymbol1yearOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
     v1StockdataSymbol24hOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
     v1StockdataSymbol2yearsOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
+    v1StockdataSymbolLatestOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
     v1StockdataSymbolMtdOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
     v1StockdataSymbolOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
     v1StockdataSymbolYtdOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
@@ -32,6 +35,7 @@ export declare class DfsApiRequestFactory extends BaseAPIRequestFactory {
 }
 export declare class DfsApiResponseProcessor {
     getStockdataInfo(response: ResponseContext): Promise<GetStockdataInfoResponseModel>;
+    getStockdataLatest(response: ResponseContext): Promise<GetStockdataLatestResponseModel>;
     listSymbols(response: ResponseContext): Promise<ListSymbols>;
     mtdStockdata(response: ResponseContext): Promise<MtdStockdataResponseModel>;
     oneYearStockdata(response: ResponseContext): Promise<Model1yearStockdataResponseModel>;
@@ -45,6 +49,7 @@ export declare class DfsApiResponseProcessor {
     v1StockdataSymbol1yearOptions(response: ResponseContext): Promise<void>;
     v1StockdataSymbol24hOptions(response: ResponseContext): Promise<void>;
     v1StockdataSymbol2yearsOptions(response: ResponseContext): Promise<void>;
+    v1StockdataSymbolLatestOptions(response: ResponseContext): Promise<void>;
     v1StockdataSymbolMtdOptions(response: ResponseContext): Promise<void>;
     v1StockdataSymbolOptions(response: ResponseContext): Promise<void>;
     v1StockdataSymbolYtdOptions(response: ResponseContext): Promise<void>;

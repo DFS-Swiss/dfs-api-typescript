@@ -13,21 +13,21 @@
 import { ListSymbolsBodyData } from './ListSymbolsBodyData';
 import { HttpFile } from '../http/http';
 
-export class YtdStockdataResponseModelBody {
-    'items'?: Array<ListSymbolsBodyData>;
+export class GetStockdataLatestResponseModelBody {
+    'item'?: ListSymbolsBodyData;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "items",
-            "baseName": "items",
-            "type": "Array<ListSymbolsBodyData>",
+            "name": "item",
+            "baseName": "item",
+            "type": "ListSymbolsBodyData",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return YtdStockdataResponseModelBody.attributeTypeMap;
+        return GetStockdataLatestResponseModelBody.attributeTypeMap;
     }
 
     public constructor() {

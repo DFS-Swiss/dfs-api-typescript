@@ -1,5 +1,6 @@
 import { Configuration } from '../configuration';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
+import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { ListSymbols } from '../models/ListSymbols';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
@@ -9,6 +10,10 @@ import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { DfsApiRequestFactory, DfsApiResponseProcessor } from "../apis/DfsApi";
 export interface DfsApiGetStockdataInfoRequest {
+    symbol: string;
+    apiKey: string;
+}
+export interface DfsApiGetStockdataLatestRequest {
     symbol: string;
     apiKey: string;
 }
@@ -51,6 +56,9 @@ export interface DfsApiV1StockdataSymbol24hOptionsRequest {
 export interface DfsApiV1StockdataSymbol2yearsOptionsRequest {
     symbol: string;
 }
+export interface DfsApiV1StockdataSymbolLatestOptionsRequest {
+    symbol: string;
+}
 export interface DfsApiV1StockdataSymbolMtdOptionsRequest {
     symbol: string;
 }
@@ -70,6 +78,7 @@ export declare class ObjectDfsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
     getStockdataInfo(param: DfsApiGetStockdataInfoRequest, options?: Configuration): Promise<GetStockdataInfoResponseModel>;
+    getStockdataLatest(param: DfsApiGetStockdataLatestRequest, options?: Configuration): Promise<GetStockdataLatestResponseModel>;
     listSymbols(param: DfsApiListSymbolsRequest, options?: Configuration): Promise<ListSymbols>;
     mtdStockdata(param: DfsApiMtdStockdataRequest, options?: Configuration): Promise<MtdStockdataResponseModel>;
     oneYearStockdata(param: DfsApiOneYearStockdataRequest, options?: Configuration): Promise<Model1yearStockdataResponseModel>;
@@ -83,6 +92,7 @@ export declare class ObjectDfsApi {
     v1StockdataSymbol1yearOptions(param: DfsApiV1StockdataSymbol1yearOptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataSymbol24hOptions(param: DfsApiV1StockdataSymbol24hOptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataSymbol2yearsOptions(param: DfsApiV1StockdataSymbol2yearsOptionsRequest, options?: Configuration): Promise<void>;
+    v1StockdataSymbolLatestOptions(param: DfsApiV1StockdataSymbolLatestOptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataSymbolMtdOptions(param: DfsApiV1StockdataSymbolMtdOptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataSymbolOptions(param: DfsApiV1StockdataSymbolOptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataSymbolYtdOptions(param: DfsApiV1StockdataSymbolYtdOptionsRequest, options?: Configuration): Promise<void>;

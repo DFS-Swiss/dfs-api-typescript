@@ -10,6 +10,10 @@ var PromiseDfsApi = (function () {
         var result = this.api.getStockdataInfo(symbol, apiKey, _options);
         return result.toPromise();
     };
+    PromiseDfsApi.prototype.getStockdataLatest = function (symbol, apiKey, _options) {
+        var result = this.api.getStockdataLatest(symbol, apiKey, _options);
+        return result.toPromise();
+    };
     PromiseDfsApi.prototype.listSymbols = function (apiKey, _options) {
         var result = this.api.listSymbols(apiKey, _options);
         return result.toPromise();
@@ -60,6 +64,10 @@ var PromiseDfsApi = (function () {
     };
     PromiseDfsApi.prototype.v1StockdataSymbol2yearsOptions = function (symbol, _options) {
         var result = this.api.v1StockdataSymbol2yearsOptions(symbol, _options);
+        return result.toPromise();
+    };
+    PromiseDfsApi.prototype.v1StockdataSymbolLatestOptions = function (symbol, _options) {
+        var result = this.api.v1StockdataSymbolLatestOptions(symbol, _options);
         return result.toPromise();
     };
     PromiseDfsApi.prototype.v1StockdataSymbolMtdOptions = function (symbol, _options) {

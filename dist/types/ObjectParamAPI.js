@@ -9,6 +9,9 @@ var ObjectDfsApi = (function () {
     ObjectDfsApi.prototype.getStockdataInfo = function (param, options) {
         return this.api.getStockdataInfo(param.symbol, param.apiKey, options).toPromise();
     };
+    ObjectDfsApi.prototype.getStockdataLatest = function (param, options) {
+        return this.api.getStockdataLatest(param.symbol, param.apiKey, options).toPromise();
+    };
     ObjectDfsApi.prototype.listSymbols = function (param, options) {
         return this.api.listSymbols(param.apiKey, options).toPromise();
     };
@@ -51,6 +54,9 @@ var ObjectDfsApi = (function () {
     };
     ObjectDfsApi.prototype.v1StockdataSymbol2yearsOptions = function (param, options) {
         return this.api.v1StockdataSymbol2yearsOptions(param.symbol, options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1StockdataSymbolLatestOptions = function (param, options) {
+        return this.api.v1StockdataSymbolLatestOptions(param.symbol, options).toPromise();
     };
     ObjectDfsApi.prototype.v1StockdataSymbolMtdOptions = function (param, options) {
         return this.api.v1StockdataSymbolMtdOptions(param.symbol, options).toPromise();

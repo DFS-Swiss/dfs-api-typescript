@@ -14,6 +14,8 @@ exports.ObjectSerializer = void 0;
 __exportStar(require("./GetStockdataInfoResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);
+__exportStar(require("./GetStockdataLatestResponseModel"), exports);
+__exportStar(require("./GetStockdataLatestResponseModelBody"), exports);
 __exportStar(require("./GetUserResponseModel"), exports);
 __exportStar(require("./GetUserResponseModelBody"), exports);
 __exportStar(require("./GetUserResponseModelBodyItem"), exports);
@@ -30,6 +32,8 @@ __exportStar(require("./YtdStockdataResponseModelBody"), exports);
 var GetStockdataInfoResponseModel_1 = require("./GetStockdataInfoResponseModel");
 var GetStockdataInfoResponseModelBody_1 = require("./GetStockdataInfoResponseModelBody");
 var GetStockdataInfoResponseModelBodyItem_1 = require("./GetStockdataInfoResponseModelBodyItem");
+var GetStockdataLatestResponseModel_1 = require("./GetStockdataLatestResponseModel");
+var GetStockdataLatestResponseModelBody_1 = require("./GetStockdataLatestResponseModelBody");
 var GetUserResponseModel_1 = require("./GetUserResponseModel");
 var GetUserResponseModelBody_1 = require("./GetUserResponseModelBody");
 var GetUserResponseModelBodyItem_1 = require("./GetUserResponseModelBodyItem");
@@ -63,6 +67,8 @@ var typeMap = {
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel_1.GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody_1.GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem_1.GetStockdataInfoResponseModelBodyItem,
+    "GetStockdataLatestResponseModel": GetStockdataLatestResponseModel_1.GetStockdataLatestResponseModel,
+    "GetStockdataLatestResponseModelBody": GetStockdataLatestResponseModelBody_1.GetStockdataLatestResponseModelBody,
     "GetUserResponseModel": GetUserResponseModel_1.GetUserResponseModel,
     "GetUserResponseModelBody": GetUserResponseModelBody_1.GetUserResponseModelBody,
     "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem_1.GetUserResponseModelBodyItem,

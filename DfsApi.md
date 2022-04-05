@@ -5,6 +5,7 @@ All URIs are relative to *https://ryfjnva5k5.execute-api.eu-central-1.amazonaws.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getStockdataInfo**](DfsApi.md#getStockdataInfo) | **GET** /v1/stockdata/{symbol} | 
+[**getStockdataLatest**](DfsApi.md#getStockdataLatest) | **GET** /v1/stockdata/{symbol}/latest | 
 [**listSymbols**](DfsApi.md#listSymbols) | **GET** /v1/stockdata/list | 
 [**mtdStockdata**](DfsApi.md#mtdStockdata) | **GET** /v1/stockdata/{symbol}/mtd | 
 [**oneYearStockdata**](DfsApi.md#oneYearStockdata) | **GET** /v1/stockdata/{symbol}/1year | 
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**v1StockdataSymbol1yearOptions**](DfsApi.md#v1StockdataSymbol1yearOptions) | **OPTIONS** /v1/stockdata/{symbol}/1year | 
 [**v1StockdataSymbol24hOptions**](DfsApi.md#v1StockdataSymbol24hOptions) | **OPTIONS** /v1/stockdata/{symbol}/24h | 
 [**v1StockdataSymbol2yearsOptions**](DfsApi.md#v1StockdataSymbol2yearsOptions) | **OPTIONS** /v1/stockdata/{symbol}/2years | 
+[**v1StockdataSymbolLatestOptions**](DfsApi.md#v1StockdataSymbolLatestOptions) | **OPTIONS** /v1/stockdata/{symbol}/latest | 
 [**v1StockdataSymbolMtdOptions**](DfsApi.md#v1StockdataSymbolMtdOptions) | **OPTIONS** /v1/stockdata/{symbol}/mtd | 
 [**v1StockdataSymbolOptions**](DfsApi.md#v1StockdataSymbolOptions) | **OPTIONS** /v1/stockdata/{symbol} | 
 [**v1StockdataSymbolYtdOptions**](DfsApi.md#v1StockdataSymbolYtdOptions) | **OPTIONS** /v1/stockdata/{symbol}/ytd | 
@@ -63,6 +65,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 **GetStockdataInfoResponseModel**
+
+### Authorization
+
+[proddfsswisscognitoAuthorizer029DC9BB](README.md#proddfsswisscognitoAuthorizer029DC9BB)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  |
+**400** | 400 response |  * Access-Control-Allow-Origin -  <br>  |
+**401** | 401 response |  * Access-Control-Allow-Origin -  <br>  |
+**403** | 403 response |  * Access-Control-Allow-Origin -  <br>  |
+**404** | 404 response |  * Access-Control-Allow-Origin -  <br>  |
+**500** | 500 response |  * Access-Control-Allow-Origin -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getStockdataLatest**
+> GetStockdataLatestResponseModel getStockdataLatest()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:.DfsApiGetStockdataLatestRequest = {
+  // string
+  symbol: "symbol_example",
+  // string
+  apiKey: "apiKey_example",
+};
+
+apiInstance.getStockdataLatest(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | [**string**] |  | defaults to undefined
+ **apiKey** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**GetStockdataLatestResponseModel**
 
 ### Authorization
 
@@ -760,6 +823,59 @@ let body:.DfsApiV1StockdataSymbol2yearsOptionsRequest = {
 };
 
 apiInstance.v1StockdataSymbol2yearsOptions(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **symbol** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **v1StockdataSymbolLatestOptions**
+> void v1StockdataSymbolLatestOptions()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:.DfsApiV1StockdataSymbolLatestOptionsRequest = {
+  // string
+  symbol: "symbol_example",
+};
+
+apiInstance.v1StockdataSymbolLatestOptions(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

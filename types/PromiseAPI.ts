@@ -5,6 +5,8 @@ import { Configuration} from '../configuration'
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
+import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
+import { GetStockdataLatestResponseModelBody } from '../models/GetStockdataLatestResponseModelBody';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
@@ -38,6 +40,15 @@ export class PromiseDfsApi {
      */
     public getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataInfoResponseModel> {
         const result = this.api.getStockdataInfo(symbol, apiKey, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param symbol 
+     * @param apiKey 
+     */
+    public getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataLatestResponseModel> {
+        const result = this.api.getStockdataLatest(symbol, apiKey, _options);
         return result.toPromise();
     }
 
@@ -142,6 +153,14 @@ export class PromiseDfsApi {
      */
     public v1StockdataSymbol2yearsOptions(symbol: string, _options?: Configuration): Promise<void> {
         const result = this.api.v1StockdataSymbol2yearsOptions(symbol, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param symbol 
+     */
+    public v1StockdataSymbolLatestOptions(symbol: string, _options?: Configuration): Promise<void> {
+        const result = this.api.v1StockdataSymbolLatestOptions(symbol, _options);
         return result.toPromise();
     }
 

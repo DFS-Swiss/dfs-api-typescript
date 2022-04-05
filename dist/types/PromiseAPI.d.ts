@@ -1,5 +1,6 @@
 import { Configuration } from '../configuration';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
+import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
 import { ListSymbols } from '../models/ListSymbols';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
@@ -12,6 +13,7 @@ export declare class PromiseDfsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
     getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataInfoResponseModel>;
+    getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataLatestResponseModel>;
     listSymbols(apiKey: string, _options?: Configuration): Promise<ListSymbols>;
     mtdStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<MtdStockdataResponseModel>;
     oneYearStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<Model1yearStockdataResponseModel>;
@@ -25,6 +27,7 @@ export declare class PromiseDfsApi {
     v1StockdataSymbol1yearOptions(symbol: string, _options?: Configuration): Promise<void>;
     v1StockdataSymbol24hOptions(symbol: string, _options?: Configuration): Promise<void>;
     v1StockdataSymbol2yearsOptions(symbol: string, _options?: Configuration): Promise<void>;
+    v1StockdataSymbolLatestOptions(symbol: string, _options?: Configuration): Promise<void>;
     v1StockdataSymbolMtdOptions(symbol: string, _options?: Configuration): Promise<void>;
     v1StockdataSymbolOptions(symbol: string, _options?: Configuration): Promise<void>;
     v1StockdataSymbolYtdOptions(symbol: string, _options?: Configuration): Promise<void>;
