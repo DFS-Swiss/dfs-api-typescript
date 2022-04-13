@@ -3,6 +3,8 @@ import * as models from '../models/all';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
+import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
+import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
@@ -13,14 +15,16 @@ import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
 import { ListSymbols } from '../models/ListSymbols';
 import { ListSymbolsBody } from '../models/ListSymbolsBody';
-import { ListSymbolsBodyData } from '../models/ListSymbolsBodyData';
 import { ListSymbolsBodyItems } from '../models/ListSymbolsBodyItems';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
+import { Model1yearStockdataResponseModelBody } from '../models/Model1yearStockdataResponseModelBody';
+import { Model1yearStockdataResponseModelBodyItems } from '../models/Model1yearStockdataResponseModelBodyItems';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
+import { SellAssetRequestModel } from '../models/SellAssetRequestModel';
+import { SellAssetResponseModel } from '../models/SellAssetResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
-import { YtdStockdataResponseModelBody } from '../models/YtdStockdataResponseModelBody';
 
 import { DfsApiRequestFactory, DfsApiResponseProcessor} from "../apis/DfsApi";
 export class ObservableDfsApi {
@@ -36,6 +40,29 @@ export class ObservableDfsApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new DfsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new DfsApiResponseProcessor();
+    }
+
+    /**
+     * @param apiKey 
+     * @param buyAssetRequestModel 
+     */
+    public buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Observable<BuyAssetResponseModel> {
+        const requestContextPromise = this.requestFactory.buyAsset(apiKey, buyAssetRequestModel, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.buyAsset(rsp)));
+            }));
     }
 
     /**
@@ -175,6 +202,29 @@ export class ObservableDfsApi {
 
     /**
      * @param apiKey 
+     * @param sellAssetRequestModel 
+     */
+    public sellAsset(apiKey: string, sellAssetRequestModel: SellAssetRequestModel, _options?: Configuration): Observable<SellAssetResponseModel> {
+        const requestContextPromise = this.requestFactory.sellAsset(apiKey, sellAssetRequestModel, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.sellAsset(rsp)));
+            }));
+    }
+
+    /**
+     * @param apiKey 
      * @param symbol 
      */
     public twentyfourHourStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<Model24hStockdataResponseModel> {
@@ -238,6 +288,69 @@ export class ObservableDfsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.userGet(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public v1AssetsBuyOptions(_options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.v1AssetsBuyOptions(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1AssetsBuyOptions(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public v1AssetsOptions(_options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.v1AssetsOptions(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1AssetsOptions(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public v1AssetsSellOptions(_options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.v1AssetsSellOptions(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1AssetsSellOptions(rsp)));
             }));
     }
 

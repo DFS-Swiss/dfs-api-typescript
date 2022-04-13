@@ -1,3 +1,5 @@
+export * from './BuyAssetRequestModel';
+export * from './BuyAssetResponseModel';
 export * from './GetStockdataInfoResponseModel';
 export * from './GetStockdataInfoResponseModelBody';
 export * from './GetStockdataInfoResponseModelBodyItem';
@@ -8,14 +10,16 @@ export * from './GetUserResponseModelBody';
 export * from './GetUserResponseModelBodyItem';
 export * from './ListSymbols';
 export * from './ListSymbolsBody';
-export * from './ListSymbolsBodyData';
 export * from './ListSymbolsBodyItems';
 export * from './Model1yearStockdataResponseModel';
+export * from './Model1yearStockdataResponseModelBody';
+export * from './Model1yearStockdataResponseModelBodyItems';
 export * from './Model24hStockdataResponseModel';
 export * from './Model2yearsStockdataResponseModel';
 export * from './MtdStockdataResponseModel';
+export * from './SellAssetRequestModel';
+export * from './SellAssetResponseModel';
 export * from './YtdStockdataResponseModel';
-export * from './YtdStockdataResponseModelBody';
 export declare class ObjectSerializer {
     static findCorrectType(data: any, expectedType: string): any;
     static serialize(data: any, type: string, format: string): any;

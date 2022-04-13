@@ -1,4 +1,6 @@
 import { Configuration } from '../configuration';
+import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
+import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -7,8 +9,14 @@ import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataR
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
+import { SellAssetRequestModel } from '../models/SellAssetRequestModel';
+import { SellAssetResponseModel } from '../models/SellAssetResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { DfsApiRequestFactory, DfsApiResponseProcessor } from "../apis/DfsApi";
+export interface DfsApiBuyAssetRequest {
+    apiKey: string;
+    buyAssetRequestModel: BuyAssetRequestModel;
+}
 export interface DfsApiGetStockdataInfoRequest {
     symbol: string;
     apiKey: string;
@@ -30,6 +38,10 @@ export interface DfsApiOneYearStockdataRequest {
 }
 export interface DfsApiRootOptionsRequest {
 }
+export interface DfsApiSellAssetRequest {
+    apiKey: string;
+    sellAssetRequestModel: SellAssetRequestModel;
+}
 export interface DfsApiTwentyfourHourStockdataRequest {
     apiKey: string;
     symbol: string;
@@ -40,6 +52,12 @@ export interface DfsApiTwoYearsStockdataRequest {
 }
 export interface DfsApiUserGetRequest {
     apiKey: string;
+}
+export interface DfsApiV1AssetsBuyOptionsRequest {
+}
+export interface DfsApiV1AssetsOptionsRequest {
+}
+export interface DfsApiV1AssetsSellOptionsRequest {
 }
 export interface DfsApiV1OptionsRequest {
 }
@@ -77,15 +95,20 @@ export interface DfsApiYtdStockdataRequest {
 export declare class ObjectDfsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
+    buyAsset(param: DfsApiBuyAssetRequest, options?: Configuration): Promise<BuyAssetResponseModel>;
     getStockdataInfo(param: DfsApiGetStockdataInfoRequest, options?: Configuration): Promise<GetStockdataInfoResponseModel>;
     getStockdataLatest(param: DfsApiGetStockdataLatestRequest, options?: Configuration): Promise<GetStockdataLatestResponseModel>;
     listSymbols(param: DfsApiListSymbolsRequest, options?: Configuration): Promise<ListSymbols>;
     mtdStockdata(param: DfsApiMtdStockdataRequest, options?: Configuration): Promise<MtdStockdataResponseModel>;
     oneYearStockdata(param: DfsApiOneYearStockdataRequest, options?: Configuration): Promise<Model1yearStockdataResponseModel>;
     rootOptions(param?: DfsApiRootOptionsRequest, options?: Configuration): Promise<void>;
+    sellAsset(param: DfsApiSellAssetRequest, options?: Configuration): Promise<SellAssetResponseModel>;
     twentyfourHourStockdata(param: DfsApiTwentyfourHourStockdataRequest, options?: Configuration): Promise<Model24hStockdataResponseModel>;
     twoYearsStockdata(param: DfsApiTwoYearsStockdataRequest, options?: Configuration): Promise<Model2yearsStockdataResponseModel>;
     userGet(param: DfsApiUserGetRequest, options?: Configuration): Promise<GetUserResponseModel>;
+    v1AssetsBuyOptions(param?: DfsApiV1AssetsBuyOptionsRequest, options?: Configuration): Promise<void>;
+    v1AssetsOptions(param?: DfsApiV1AssetsOptionsRequest, options?: Configuration): Promise<void>;
+    v1AssetsSellOptions(param?: DfsApiV1AssetsSellOptionsRequest, options?: Configuration): Promise<void>;
     v1Options(param?: DfsApiV1OptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataListOptions(param?: DfsApiV1StockdataListOptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataOptions(param?: DfsApiV1StockdataOptionsRequest, options?: Configuration): Promise<void>;

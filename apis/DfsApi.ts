@@ -8,6 +8,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
+import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -16,12 +18,70 @@ import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataR
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
+import { SellAssetRequestModel } from '../models/SellAssetRequestModel';
+import { SellAssetResponseModel } from '../models/SellAssetResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 
 /**
  * no description
  */
 export class DfsApiRequestFactory extends BaseAPIRequestFactory {
+
+    /**
+     * @param apiKey 
+     * @param buyAssetRequestModel 
+     */
+    public async buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiKey' is not null or undefined
+        if (apiKey === null || apiKey === undefined) {
+            throw new RequiredError("DfsApi", "buyAsset", "apiKey");
+        }
+
+
+        // verify required parameter 'buyAssetRequestModel' is not null or undefined
+        if (buyAssetRequestModel === null || buyAssetRequestModel === undefined) {
+            throw new RequiredError("DfsApi", "buyAsset", "buyAssetRequestModel");
+        }
+
+
+        // Path Params
+        const localVarPath = '/v1/assets/buy';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("apiKey", ObjectSerializer.serialize(apiKey, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(buyAssetRequestModel, "BuyAssetRequestModel", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["proddfsswisscognitoAuthorizer029DC9BB"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
 
     /**
      * @param symbol 
@@ -251,6 +311,62 @@ export class DfsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * @param apiKey 
+     * @param sellAssetRequestModel 
+     */
+    public async sellAsset(apiKey: string, sellAssetRequestModel: SellAssetRequestModel, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiKey' is not null or undefined
+        if (apiKey === null || apiKey === undefined) {
+            throw new RequiredError("DfsApi", "sellAsset", "apiKey");
+        }
+
+
+        // verify required parameter 'sellAssetRequestModel' is not null or undefined
+        if (sellAssetRequestModel === null || sellAssetRequestModel === undefined) {
+            throw new RequiredError("DfsApi", "sellAsset", "sellAssetRequestModel");
+        }
+
+
+        // Path Params
+        const localVarPath = '/v1/assets/sell';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("apiKey", ObjectSerializer.serialize(apiKey, "string", ""));
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(sellAssetRequestModel, "SellAssetRequestModel", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["proddfsswisscognitoAuthorizer029DC9BB"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * @param apiKey 
      * @param symbol 
      */
     public async twentyfourHourStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<RequestContext> {
@@ -358,6 +474,72 @@ export class DfsApiRequestFactory extends BaseAPIRequestFactory {
         if (authMethod?.applySecurityAuthentication) {
             await authMethod?.applySecurityAuthentication(requestContext);
         }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     */
+    public async v1AssetsBuyOptions(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/v1/assets/buy';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.OPTIONS);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     */
+    public async v1AssetsOptions(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/v1/assets';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.OPTIONS);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     */
+    public async v1AssetsSellOptions(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/v1/assets/sell';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.OPTIONS);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
         
         const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
@@ -713,6 +895,70 @@ export class DfsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to buyAsset
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async buyAsset(response: ResponseContext): Promise<BuyAssetResponseModel > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: BuyAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BuyAssetResponseModel", ""
+            ) as BuyAssetResponseModel;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: BuyAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BuyAssetResponseModel", ""
+            ) as BuyAssetResponseModel;
+            throw new ApiException<BuyAssetResponseModel>(400, "400 response", body, response.headers);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            const body: BuyAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BuyAssetResponseModel", ""
+            ) as BuyAssetResponseModel;
+            throw new ApiException<BuyAssetResponseModel>(401, "401 response", body, response.headers);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: BuyAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BuyAssetResponseModel", ""
+            ) as BuyAssetResponseModel;
+            throw new ApiException<BuyAssetResponseModel>(403, "403 response", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: BuyAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BuyAssetResponseModel", ""
+            ) as BuyAssetResponseModel;
+            throw new ApiException<BuyAssetResponseModel>(404, "404 response", body, response.headers);
+        }
+        if (isCodeInRange("500", response.httpStatusCode)) {
+            const body: BuyAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BuyAssetResponseModel", ""
+            ) as BuyAssetResponseModel;
+            throw new ApiException<BuyAssetResponseModel>(500, "500 response", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: BuyAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BuyAssetResponseModel", ""
+            ) as BuyAssetResponseModel;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to getStockdataInfo
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -1058,6 +1304,70 @@ export class DfsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
+     * @params response Response returned by the server for a request to sellAsset
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async sellAsset(response: ResponseContext): Promise<SellAssetResponseModel > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: SellAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SellAssetResponseModel", ""
+            ) as SellAssetResponseModel;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: SellAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SellAssetResponseModel", ""
+            ) as SellAssetResponseModel;
+            throw new ApiException<SellAssetResponseModel>(400, "400 response", body, response.headers);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            const body: SellAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SellAssetResponseModel", ""
+            ) as SellAssetResponseModel;
+            throw new ApiException<SellAssetResponseModel>(401, "401 response", body, response.headers);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: SellAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SellAssetResponseModel", ""
+            ) as SellAssetResponseModel;
+            throw new ApiException<SellAssetResponseModel>(403, "403 response", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: SellAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SellAssetResponseModel", ""
+            ) as SellAssetResponseModel;
+            throw new ApiException<SellAssetResponseModel>(404, "404 response", body, response.headers);
+        }
+        if (isCodeInRange("500", response.httpStatusCode)) {
+            const body: SellAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SellAssetResponseModel", ""
+            ) as SellAssetResponseModel;
+            throw new ApiException<SellAssetResponseModel>(500, "500 response", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: SellAssetResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "SellAssetResponseModel", ""
+            ) as SellAssetResponseModel;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
      * @params response Response returned by the server for a request to twentyfourHourStockdata
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -1240,6 +1550,81 @@ export class DfsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "GetUserResponseModel", ""
             ) as GetUserResponseModel;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to v1AssetsBuyOptions
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async v1AssetsBuyOptions(response: ResponseContext): Promise<void > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            return;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: void = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "void", ""
+            ) as void;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to v1AssetsOptions
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async v1AssetsOptions(response: ResponseContext): Promise<void > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            return;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: void = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "void", ""
+            ) as void;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to v1AssetsSellOptions
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async v1AssetsSellOptions(response: ResponseContext): Promise<void > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            return;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: void = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "void", ""
+            ) as void;
             return body;
         }
 

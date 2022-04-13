@@ -1,4 +1,6 @@
 import { Configuration } from '../configuration';
+import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
+import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -7,20 +9,27 @@ import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataR
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
+import { SellAssetRequestModel } from '../models/SellAssetRequestModel';
+import { SellAssetResponseModel } from '../models/SellAssetResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { DfsApiRequestFactory, DfsApiResponseProcessor } from "../apis/DfsApi";
 export declare class PromiseDfsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
+    buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Promise<BuyAssetResponseModel>;
     getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataInfoResponseModel>;
     getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataLatestResponseModel>;
     listSymbols(apiKey: string, _options?: Configuration): Promise<ListSymbols>;
     mtdStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<MtdStockdataResponseModel>;
     oneYearStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<Model1yearStockdataResponseModel>;
     rootOptions(_options?: Configuration): Promise<void>;
+    sellAsset(apiKey: string, sellAssetRequestModel: SellAssetRequestModel, _options?: Configuration): Promise<SellAssetResponseModel>;
     twentyfourHourStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<Model24hStockdataResponseModel>;
     twoYearsStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<Model2yearsStockdataResponseModel>;
     userGet(apiKey: string, _options?: Configuration): Promise<GetUserResponseModel>;
+    v1AssetsBuyOptions(_options?: Configuration): Promise<void>;
+    v1AssetsOptions(_options?: Configuration): Promise<void>;
+    v1AssetsSellOptions(_options?: Configuration): Promise<void>;
     v1Options(_options?: Configuration): Promise<void>;
     v1StockdataListOptions(_options?: Configuration): Promise<void>;
     v1StockdataOptions(_options?: Configuration): Promise<void>;

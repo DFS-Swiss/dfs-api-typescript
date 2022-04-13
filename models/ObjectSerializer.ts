@@ -1,3 +1,5 @@
+export * from './BuyAssetRequestModel';
+export * from './BuyAssetResponseModel';
 export * from './GetStockdataInfoResponseModel';
 export * from './GetStockdataInfoResponseModelBody';
 export * from './GetStockdataInfoResponseModelBodyItem';
@@ -8,15 +10,19 @@ export * from './GetUserResponseModelBody';
 export * from './GetUserResponseModelBodyItem';
 export * from './ListSymbols';
 export * from './ListSymbolsBody';
-export * from './ListSymbolsBodyData';
 export * from './ListSymbolsBodyItems';
 export * from './Model1yearStockdataResponseModel';
+export * from './Model1yearStockdataResponseModelBody';
+export * from './Model1yearStockdataResponseModelBodyItems';
 export * from './Model24hStockdataResponseModel';
 export * from './Model2yearsStockdataResponseModel';
 export * from './MtdStockdataResponseModel';
+export * from './SellAssetRequestModel';
+export * from './SellAssetResponseModel';
 export * from './YtdStockdataResponseModel';
-export * from './YtdStockdataResponseModelBody';
 
+import { BuyAssetRequestModel } from './BuyAssetRequestModel';
+import { BuyAssetResponseModel } from './BuyAssetResponseModel';
 import { GetStockdataInfoResponseModel } from './GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from './GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from './GetStockdataInfoResponseModelBodyItem';
@@ -27,14 +33,16 @@ import { GetUserResponseModelBody } from './GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from './GetUserResponseModelBodyItem';
 import { ListSymbols } from './ListSymbols';
 import { ListSymbolsBody } from './ListSymbolsBody';
-import { ListSymbolsBodyData } from './ListSymbolsBodyData';
 import { ListSymbolsBodyItems } from './ListSymbolsBodyItems';
 import { Model1yearStockdataResponseModel } from './Model1yearStockdataResponseModel';
+import { Model1yearStockdataResponseModelBody } from './Model1yearStockdataResponseModelBody';
+import { Model1yearStockdataResponseModelBodyItems } from './Model1yearStockdataResponseModelBodyItems';
 import { Model24hStockdataResponseModel } from './Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from './Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from './MtdStockdataResponseModel';
+import { SellAssetRequestModel } from './SellAssetRequestModel';
+import { SellAssetResponseModel } from './SellAssetResponseModel';
 import { YtdStockdataResponseModel } from './YtdStockdataResponseModel';
-import { YtdStockdataResponseModelBody } from './YtdStockdataResponseModelBody';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -59,6 +67,8 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "BuyAssetRequestModel": BuyAssetRequestModel,
+    "BuyAssetResponseModel": BuyAssetResponseModel,
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem,
@@ -69,14 +79,16 @@ let typeMap: {[index: string]: any} = {
     "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem,
     "ListSymbols": ListSymbols,
     "ListSymbolsBody": ListSymbolsBody,
-    "ListSymbolsBodyData": ListSymbolsBodyData,
     "ListSymbolsBodyItems": ListSymbolsBodyItems,
     "Model1yearStockdataResponseModel": Model1yearStockdataResponseModel,
+    "Model1yearStockdataResponseModelBody": Model1yearStockdataResponseModelBody,
+    "Model1yearStockdataResponseModelBodyItems": Model1yearStockdataResponseModelBodyItems,
     "Model24hStockdataResponseModel": Model24hStockdataResponseModel,
     "Model2yearsStockdataResponseModel": Model2yearsStockdataResponseModel,
     "MtdStockdataResponseModel": MtdStockdataResponseModel,
+    "SellAssetRequestModel": SellAssetRequestModel,
+    "SellAssetResponseModel": SellAssetResponseModel,
     "YtdStockdataResponseModel": YtdStockdataResponseModel,
-    "YtdStockdataResponseModelBody": YtdStockdataResponseModelBody,
 }
 
 export class ObjectSerializer {

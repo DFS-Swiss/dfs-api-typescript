@@ -12,7 +12,7 @@ var GetStockdataLatestResponseModelBody = (function () {
         {
             "name": "item",
             "baseName": "item",
-            "type": "ListSymbolsBodyData",
+            "type": "Model1yearStockdataResponseModelBodyItems",
             "format": ""
         }
     ];

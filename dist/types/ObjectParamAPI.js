@@ -6,6 +6,9 @@ var ObjectDfsApi = (function () {
     function ObjectDfsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableDfsApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectDfsApi.prototype.buyAsset = function (param, options) {
+        return this.api.buyAsset(param.apiKey, param.buyAssetRequestModel, options).toPromise();
+    };
     ObjectDfsApi.prototype.getStockdataInfo = function (param, options) {
         return this.api.getStockdataInfo(param.symbol, param.apiKey, options).toPromise();
     };
@@ -25,6 +28,9 @@ var ObjectDfsApi = (function () {
         if (param === void 0) { param = {}; }
         return this.api.rootOptions(options).toPromise();
     };
+    ObjectDfsApi.prototype.sellAsset = function (param, options) {
+        return this.api.sellAsset(param.apiKey, param.sellAssetRequestModel, options).toPromise();
+    };
     ObjectDfsApi.prototype.twentyfourHourStockdata = function (param, options) {
         return this.api.twentyfourHourStockdata(param.apiKey, param.symbol, options).toPromise();
     };
@@ -33,6 +39,18 @@ var ObjectDfsApi = (function () {
     };
     ObjectDfsApi.prototype.userGet = function (param, options) {
         return this.api.userGet(param.apiKey, options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1AssetsBuyOptions = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.v1AssetsBuyOptions(options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1AssetsOptions = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.v1AssetsOptions(options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1AssetsSellOptions = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.v1AssetsSellOptions(options).toPromise();
     };
     ObjectDfsApi.prototype.v1Options = function (param, options) {
         if (param === void 0) { param = {}; }

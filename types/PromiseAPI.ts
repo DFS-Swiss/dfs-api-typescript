@@ -2,6 +2,8 @@ import { ResponseContext, RequestContext, HttpFile } from '../http/http';
 import * as models from '../models/all';
 import { Configuration} from '../configuration'
 
+import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
+import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
@@ -12,14 +14,16 @@ import { GetUserResponseModelBody } from '../models/GetUserResponseModelBody';
 import { GetUserResponseModelBodyItem } from '../models/GetUserResponseModelBodyItem';
 import { ListSymbols } from '../models/ListSymbols';
 import { ListSymbolsBody } from '../models/ListSymbolsBody';
-import { ListSymbolsBodyData } from '../models/ListSymbolsBodyData';
 import { ListSymbolsBodyItems } from '../models/ListSymbolsBodyItems';
 import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataResponseModel';
+import { Model1yearStockdataResponseModelBody } from '../models/Model1yearStockdataResponseModelBody';
+import { Model1yearStockdataResponseModelBodyItems } from '../models/Model1yearStockdataResponseModelBodyItems';
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
+import { SellAssetRequestModel } from '../models/SellAssetRequestModel';
+import { SellAssetResponseModel } from '../models/SellAssetResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
-import { YtdStockdataResponseModelBody } from '../models/YtdStockdataResponseModelBody';
 import { ObservableDfsApi } from './ObservableAPI';
 
 import { DfsApiRequestFactory, DfsApiResponseProcessor} from "../apis/DfsApi";
@@ -32,6 +36,15 @@ export class PromiseDfsApi {
         responseProcessor?: DfsApiResponseProcessor
     ) {
         this.api = new ObservableDfsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param apiKey 
+     * @param buyAssetRequestModel 
+     */
+    public buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Promise<BuyAssetResponseModel> {
+        const result = this.api.buyAsset(apiKey, buyAssetRequestModel, _options);
+        return result.toPromise();
     }
 
     /**
@@ -87,6 +100,15 @@ export class PromiseDfsApi {
 
     /**
      * @param apiKey 
+     * @param sellAssetRequestModel 
+     */
+    public sellAsset(apiKey: string, sellAssetRequestModel: SellAssetRequestModel, _options?: Configuration): Promise<SellAssetResponseModel> {
+        const result = this.api.sellAsset(apiKey, sellAssetRequestModel, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param apiKey 
      * @param symbol 
      */
     public twentyfourHourStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<Model24hStockdataResponseModel> {
@@ -108,6 +130,27 @@ export class PromiseDfsApi {
      */
     public userGet(apiKey: string, _options?: Configuration): Promise<GetUserResponseModel> {
         const result = this.api.userGet(apiKey, _options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public v1AssetsBuyOptions(_options?: Configuration): Promise<void> {
+        const result = this.api.v1AssetsBuyOptions(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public v1AssetsOptions(_options?: Configuration): Promise<void> {
+        const result = this.api.v1AssetsOptions(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public v1AssetsSellOptions(_options?: Configuration): Promise<void> {
+        const result = this.api.v1AssetsSellOptions(_options);
         return result.toPromise();
     }
 

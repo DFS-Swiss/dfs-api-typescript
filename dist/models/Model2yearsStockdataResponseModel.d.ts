@@ -1,7 +1,7 @@
-import { YtdStockdataResponseModelBody } from './YtdStockdataResponseModelBody';
+import { Model1yearStockdataResponseModelBody } from './Model1yearStockdataResponseModelBody';
 export declare class Model2yearsStockdataResponseModel {
     'message': string;
-    'body'?: YtdStockdataResponseModelBody;
+    'body'?: Model1yearStockdataResponseModelBody;
     'statusCode'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

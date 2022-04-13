@@ -1,6 +1,6 @@
-import { ListSymbolsBodyData } from './ListSymbolsBodyData';
+import { Model1yearStockdataResponseModelBodyItems } from './Model1yearStockdataResponseModelBodyItems';
 export declare class GetStockdataLatestResponseModelBody {
-    'item'?: ListSymbolsBodyData;
+    'item'?: Model1yearStockdataResponseModelBodyItems;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

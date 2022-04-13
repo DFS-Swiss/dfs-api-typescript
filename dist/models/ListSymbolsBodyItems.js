@@ -18,7 +18,7 @@ var ListSymbolsBodyItems = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<ListSymbolsBodyData>",
+            "type": "Array<Model1yearStockdataResponseModelBodyItems>",
             "format": ""
         }
     ];

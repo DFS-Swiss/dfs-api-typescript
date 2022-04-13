@@ -4,15 +4,20 @@ All URIs are relative to *https://ryfjnva5k5.execute-api.eu-central-1.amazonaws.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**buyAsset**](DfsApi.md#buyAsset) | **POST** /v1/assets/buy | 
 [**getStockdataInfo**](DfsApi.md#getStockdataInfo) | **GET** /v1/stockdata/{symbol} | 
 [**getStockdataLatest**](DfsApi.md#getStockdataLatest) | **GET** /v1/stockdata/{symbol}/latest | 
 [**listSymbols**](DfsApi.md#listSymbols) | **GET** /v1/stockdata/list | 
 [**mtdStockdata**](DfsApi.md#mtdStockdata) | **GET** /v1/stockdata/{symbol}/mtd | 
 [**oneYearStockdata**](DfsApi.md#oneYearStockdata) | **GET** /v1/stockdata/{symbol}/1year | 
 [**rootOptions**](DfsApi.md#rootOptions) | **OPTIONS** / | 
+[**sellAsset**](DfsApi.md#sellAsset) | **POST** /v1/assets/sell | 
 [**twentyfourHourStockdata**](DfsApi.md#twentyfourHourStockdata) | **GET** /v1/stockdata/{symbol}/24h | 
 [**twoYearsStockdata**](DfsApi.md#twoYearsStockdata) | **GET** /v1/stockdata/{symbol}/2years | 
 [**userGet**](DfsApi.md#userGet) | **GET** /v1/user | 
+[**v1AssetsBuyOptions**](DfsApi.md#v1AssetsBuyOptions) | **OPTIONS** /v1/assets/buy | 
+[**v1AssetsOptions**](DfsApi.md#v1AssetsOptions) | **OPTIONS** /v1/assets | 
+[**v1AssetsSellOptions**](DfsApi.md#v1AssetsSellOptions) | **OPTIONS** /v1/assets/sell | 
 [**v1Options**](DfsApi.md#v1Options) | **OPTIONS** /v1 | 
 [**v1StockdataListOptions**](DfsApi.md#v1StockdataListOptions) | **OPTIONS** /v1/stockdata/list | 
 [**v1StockdataOptions**](DfsApi.md#v1StockdataOptions) | **OPTIONS** /v1/stockdata | 
@@ -26,6 +31,71 @@ Method | HTTP request | Description
 [**v1UserOptions**](DfsApi.md#v1UserOptions) | **OPTIONS** /v1/user | 
 [**ytdStockdata**](DfsApi.md#ytdStockdata) | **GET** /v1/stockdata/{symbol}/ytd | 
 
+
+# **buyAsset**
+> BuyAssetResponseModel buyAsset(buyAssetRequestModel)
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:.DfsApiBuyAssetRequest = {
+  // string
+  apiKey: "apiKey_example",
+  // BuyAssetRequestModel
+  buyAssetRequestModel: {
+    symbol: "symbol_example",
+    amountToSpend: 3.14,
+    tokenToBuy: 3.14,
+  },
+};
+
+apiInstance.buyAsset(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **buyAssetRequestModel** | **BuyAssetRequestModel**|  |
+ **apiKey** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**BuyAssetResponseModel**
+
+### Authorization
+
+[proddfsswisscognitoAuthorizer029DC9BB](README.md#proddfsswisscognitoAuthorizer029DC9BB)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  |
+**400** | 400 response |  * Access-Control-Allow-Origin -  <br>  |
+**401** | 401 response |  * Access-Control-Allow-Origin -  <br>  |
+**403** | 403 response |  * Access-Control-Allow-Origin -  <br>  |
+**404** | 404 response |  * Access-Control-Allow-Origin -  <br>  |
+**500** | 500 response |  * Access-Control-Allow-Origin -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getStockdataInfo**
 > GetStockdataInfoResponseModel getStockdataInfo()
@@ -376,6 +446,70 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **sellAsset**
+> SellAssetResponseModel sellAsset(sellAssetRequestModel)
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:.DfsApiSellAssetRequest = {
+  // string
+  apiKey: "apiKey_example",
+  // SellAssetRequestModel
+  sellAssetRequestModel: {
+    symbol: "symbol_example",
+    ammountOfTokensToSell: 3.14,
+  },
+};
+
+apiInstance.sellAsset(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sellAssetRequestModel** | **SellAssetRequestModel**|  |
+ **apiKey** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**SellAssetResponseModel**
+
+### Authorization
+
+[proddfsswisscognitoAuthorizer029DC9BB](README.md#proddfsswisscognitoAuthorizer029DC9BB)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  |
+**400** | 400 response |  * Access-Control-Allow-Origin -  <br>  |
+**401** | 401 response |  * Access-Control-Allow-Origin -  <br>  |
+**403** | 403 response |  * Access-Control-Allow-Origin -  <br>  |
+**404** | 404 response |  * Access-Control-Allow-Origin -  <br>  |
+**500** | 500 response |  * Access-Control-Allow-Origin -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **twentyfourHourStockdata**
 > Model24hStockdataResponseModel twentyfourHourStockdata()
 
@@ -553,6 +687,147 @@ Name | Type | Description  | Notes
 **403** | 403 response |  * Access-Control-Allow-Origin -  <br>  |
 **404** | 404 response |  * Access-Control-Allow-Origin -  <br>  |
 **500** | 500 response |  * Access-Control-Allow-Origin -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **v1AssetsBuyOptions**
+> void v1AssetsBuyOptions()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:any = {};
+
+apiInstance.v1AssetsBuyOptions(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **v1AssetsOptions**
+> void v1AssetsOptions()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:any = {};
+
+apiInstance.v1AssetsOptions(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **v1AssetsSellOptions**
+> void v1AssetsSellOptions()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:any = {};
+
+apiInstance.v1AssetsSellOptions(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

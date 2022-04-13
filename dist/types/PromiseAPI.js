@@ -6,6 +6,10 @@ var PromiseDfsApi = (function () {
     function PromiseDfsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableDfsApi(configuration, requestFactory, responseProcessor);
     }
+    PromiseDfsApi.prototype.buyAsset = function (apiKey, buyAssetRequestModel, _options) {
+        var result = this.api.buyAsset(apiKey, buyAssetRequestModel, _options);
+        return result.toPromise();
+    };
     PromiseDfsApi.prototype.getStockdataInfo = function (symbol, apiKey, _options) {
         var result = this.api.getStockdataInfo(symbol, apiKey, _options);
         return result.toPromise();
@@ -30,6 +34,10 @@ var PromiseDfsApi = (function () {
         var result = this.api.rootOptions(_options);
         return result.toPromise();
     };
+    PromiseDfsApi.prototype.sellAsset = function (apiKey, sellAssetRequestModel, _options) {
+        var result = this.api.sellAsset(apiKey, sellAssetRequestModel, _options);
+        return result.toPromise();
+    };
     PromiseDfsApi.prototype.twentyfourHourStockdata = function (apiKey, symbol, _options) {
         var result = this.api.twentyfourHourStockdata(apiKey, symbol, _options);
         return result.toPromise();
@@ -40,6 +48,18 @@ var PromiseDfsApi = (function () {
     };
     PromiseDfsApi.prototype.userGet = function (apiKey, _options) {
         var result = this.api.userGet(apiKey, _options);
+        return result.toPromise();
+    };
+    PromiseDfsApi.prototype.v1AssetsBuyOptions = function (_options) {
+        var result = this.api.v1AssetsBuyOptions(_options);
+        return result.toPromise();
+    };
+    PromiseDfsApi.prototype.v1AssetsOptions = function (_options) {
+        var result = this.api.v1AssetsOptions(_options);
+        return result.toPromise();
+    };
+    PromiseDfsApi.prototype.v1AssetsSellOptions = function (_options) {
+        var result = this.api.v1AssetsSellOptions(_options);
         return result.toPromise();
     };
     PromiseDfsApi.prototype.v1Options = function (_options) {

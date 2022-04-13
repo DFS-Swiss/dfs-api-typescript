@@ -11,6 +11,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
+__exportStar(require("./BuyAssetRequestModel"), exports);
+__exportStar(require("./BuyAssetResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);
@@ -21,14 +23,18 @@ __exportStar(require("./GetUserResponseModelBody"), exports);
 __exportStar(require("./GetUserResponseModelBodyItem"), exports);
 __exportStar(require("./ListSymbols"), exports);
 __exportStar(require("./ListSymbolsBody"), exports);
-__exportStar(require("./ListSymbolsBodyData"), exports);
 __exportStar(require("./ListSymbolsBodyItems"), exports);
 __exportStar(require("./Model1yearStockdataResponseModel"), exports);
+__exportStar(require("./Model1yearStockdataResponseModelBody"), exports);
+__exportStar(require("./Model1yearStockdataResponseModelBodyItems"), exports);
 __exportStar(require("./Model24hStockdataResponseModel"), exports);
 __exportStar(require("./Model2yearsStockdataResponseModel"), exports);
 __exportStar(require("./MtdStockdataResponseModel"), exports);
+__exportStar(require("./SellAssetRequestModel"), exports);
+__exportStar(require("./SellAssetResponseModel"), exports);
 __exportStar(require("./YtdStockdataResponseModel"), exports);
-__exportStar(require("./YtdStockdataResponseModelBody"), exports);
+var BuyAssetRequestModel_1 = require("./BuyAssetRequestModel");
+var BuyAssetResponseModel_1 = require("./BuyAssetResponseModel");
 var GetStockdataInfoResponseModel_1 = require("./GetStockdataInfoResponseModel");
 var GetStockdataInfoResponseModelBody_1 = require("./GetStockdataInfoResponseModelBody");
 var GetStockdataInfoResponseModelBodyItem_1 = require("./GetStockdataInfoResponseModelBodyItem");
@@ -39,14 +45,16 @@ var GetUserResponseModelBody_1 = require("./GetUserResponseModelBody");
 var GetUserResponseModelBodyItem_1 = require("./GetUserResponseModelBodyItem");
 var ListSymbols_1 = require("./ListSymbols");
 var ListSymbolsBody_1 = require("./ListSymbolsBody");
-var ListSymbolsBodyData_1 = require("./ListSymbolsBodyData");
 var ListSymbolsBodyItems_1 = require("./ListSymbolsBodyItems");
 var Model1yearStockdataResponseModel_1 = require("./Model1yearStockdataResponseModel");
+var Model1yearStockdataResponseModelBody_1 = require("./Model1yearStockdataResponseModelBody");
+var Model1yearStockdataResponseModelBodyItems_1 = require("./Model1yearStockdataResponseModelBodyItems");
 var Model24hStockdataResponseModel_1 = require("./Model24hStockdataResponseModel");
 var Model2yearsStockdataResponseModel_1 = require("./Model2yearsStockdataResponseModel");
 var MtdStockdataResponseModel_1 = require("./MtdStockdataResponseModel");
+var SellAssetRequestModel_1 = require("./SellAssetRequestModel");
+var SellAssetResponseModel_1 = require("./SellAssetResponseModel");
 var YtdStockdataResponseModel_1 = require("./YtdStockdataResponseModel");
-var YtdStockdataResponseModelBody_1 = require("./YtdStockdataResponseModelBody");
 var primitives = [
     "string",
     "boolean",
@@ -64,6 +72,8 @@ var supportedMediaTypes = {
 };
 var enumsMap = new Set([]);
 var typeMap = {
+    "BuyAssetRequestModel": BuyAssetRequestModel_1.BuyAssetRequestModel,
+    "BuyAssetResponseModel": BuyAssetResponseModel_1.BuyAssetResponseModel,
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel_1.GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody_1.GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem_1.GetStockdataInfoResponseModelBodyItem,
@@ -74,14 +84,16 @@ var typeMap = {
     "GetUserResponseModelBodyItem": GetUserResponseModelBodyItem_1.GetUserResponseModelBodyItem,
     "ListSymbols": ListSymbols_1.ListSymbols,
     "ListSymbolsBody": ListSymbolsBody_1.ListSymbolsBody,
-    "ListSymbolsBodyData": ListSymbolsBodyData_1.ListSymbolsBodyData,
     "ListSymbolsBodyItems": ListSymbolsBodyItems_1.ListSymbolsBodyItems,
     "Model1yearStockdataResponseModel": Model1yearStockdataResponseModel_1.Model1yearStockdataResponseModel,
+    "Model1yearStockdataResponseModelBody": Model1yearStockdataResponseModelBody_1.Model1yearStockdataResponseModelBody,
+    "Model1yearStockdataResponseModelBodyItems": Model1yearStockdataResponseModelBodyItems_1.Model1yearStockdataResponseModelBodyItems,
     "Model24hStockdataResponseModel": Model24hStockdataResponseModel_1.Model24hStockdataResponseModel,
     "Model2yearsStockdataResponseModel": Model2yearsStockdataResponseModel_1.Model2yearsStockdataResponseModel,
     "MtdStockdataResponseModel": MtdStockdataResponseModel_1.MtdStockdataResponseModel,
+    "SellAssetRequestModel": SellAssetRequestModel_1.SellAssetRequestModel,
+    "SellAssetResponseModel": SellAssetResponseModel_1.SellAssetResponseModel,
     "YtdStockdataResponseModel": YtdStockdataResponseModel_1.YtdStockdataResponseModel,
-    "YtdStockdataResponseModelBody": YtdStockdataResponseModelBody_1.YtdStockdataResponseModelBody,
 };
 var ObjectSerializer = (function () {
     function ObjectSerializer() {

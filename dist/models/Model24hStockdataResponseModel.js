@@ -18,7 +18,7 @@ var Model24hStockdataResponseModel = (function () {
         {
             "name": "body",
             "baseName": "body",
-            "type": "YtdStockdataResponseModelBody",
+            "type": "Model1yearStockdataResponseModelBody",
             "format": ""
         },
         {

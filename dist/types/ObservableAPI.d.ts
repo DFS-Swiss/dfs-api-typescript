@@ -1,5 +1,7 @@
 import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
+import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
+import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -8,6 +10,8 @@ import { Model1yearStockdataResponseModel } from '../models/Model1yearStockdataR
 import { Model24hStockdataResponseModel } from '../models/Model24hStockdataResponseModel';
 import { Model2yearsStockdataResponseModel } from '../models/Model2yearsStockdataResponseModel';
 import { MtdStockdataResponseModel } from '../models/MtdStockdataResponseModel';
+import { SellAssetRequestModel } from '../models/SellAssetRequestModel';
+import { SellAssetResponseModel } from '../models/SellAssetResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 import { DfsApiRequestFactory, DfsApiResponseProcessor } from "../apis/DfsApi";
 export declare class ObservableDfsApi {
@@ -15,15 +19,20 @@ export declare class ObservableDfsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
+    buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Observable<BuyAssetResponseModel>;
     getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Observable<GetStockdataInfoResponseModel>;
     getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Observable<GetStockdataLatestResponseModel>;
     listSymbols(apiKey: string, _options?: Configuration): Observable<ListSymbols>;
     mtdStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<MtdStockdataResponseModel>;
     oneYearStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<Model1yearStockdataResponseModel>;
     rootOptions(_options?: Configuration): Observable<void>;
+    sellAsset(apiKey: string, sellAssetRequestModel: SellAssetRequestModel, _options?: Configuration): Observable<SellAssetResponseModel>;
     twentyfourHourStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<Model24hStockdataResponseModel>;
     twoYearsStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<Model2yearsStockdataResponseModel>;
     userGet(apiKey: string, _options?: Configuration): Observable<GetUserResponseModel>;
+    v1AssetsBuyOptions(_options?: Configuration): Observable<void>;
+    v1AssetsOptions(_options?: Configuration): Observable<void>;
+    v1AssetsSellOptions(_options?: Configuration): Observable<void>;
     v1Options(_options?: Configuration): Observable<void>;
     v1StockdataListOptions(_options?: Configuration): Observable<void>;
     v1StockdataOptions(_options?: Configuration): Observable<void>;
