@@ -5,6 +5,8 @@ All URIs are relative to *https://ryfjnva5k5.execute-api.eu-central-1.amazonaws.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**buyAsset**](DfsApi.md#buyAsset) | **POST** /v1/assets/buy | 
+[**getAvaliableAssets**](DfsApi.md#getAvaliableAssets) | **GET** /v1/user/assets | 
+[**getAvaliableBalance**](DfsApi.md#getAvaliableBalance) | **GET** /v1/user/balance | 
 [**getStockdataInfo**](DfsApi.md#getStockdataInfo) | **GET** /v1/stockdata/{symbol} | 
 [**getStockdataLatest**](DfsApi.md#getStockdataLatest) | **GET** /v1/stockdata/{symbol}/latest | 
 [**listSymbols**](DfsApi.md#listSymbols) | **GET** /v1/stockdata/list | 
@@ -28,6 +30,8 @@ Method | HTTP request | Description
 [**v1StockdataSymbolMtdOptions**](DfsApi.md#v1StockdataSymbolMtdOptions) | **OPTIONS** /v1/stockdata/{symbol}/mtd | 
 [**v1StockdataSymbolOptions**](DfsApi.md#v1StockdataSymbolOptions) | **OPTIONS** /v1/stockdata/{symbol} | 
 [**v1StockdataSymbolYtdOptions**](DfsApi.md#v1StockdataSymbolYtdOptions) | **OPTIONS** /v1/stockdata/{symbol}/ytd | 
+[**v1UserAssetsOptions**](DfsApi.md#v1UserAssetsOptions) | **OPTIONS** /v1/user/assets | 
+[**v1UserBalanceOptions**](DfsApi.md#v1UserBalanceOptions) | **OPTIONS** /v1/user/balance | 
 [**v1UserOptions**](DfsApi.md#v1UserOptions) | **OPTIONS** /v1/user | 
 [**ytdStockdata**](DfsApi.md#ytdStockdata) | **GET** /v1/stockdata/{symbol}/ytd | 
 
@@ -82,6 +86,122 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  |
+**400** | 400 response |  * Access-Control-Allow-Origin -  <br>  |
+**401** | 401 response |  * Access-Control-Allow-Origin -  <br>  |
+**403** | 403 response |  * Access-Control-Allow-Origin -  <br>  |
+**404** | 404 response |  * Access-Control-Allow-Origin -  <br>  |
+**500** | 500 response |  * Access-Control-Allow-Origin -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getAvaliableAssets**
+> GetAvaliableAssetsResponseModel getAvaliableAssets()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:.DfsApiGetAvaliableAssetsRequest = {
+  // string
+  apiKey: "apiKey_example",
+};
+
+apiInstance.getAvaliableAssets(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**GetAvaliableAssetsResponseModel**
+
+### Authorization
+
+[proddfsswisscognitoAuthorizer029DC9BB](README.md#proddfsswisscognitoAuthorizer029DC9BB)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  |
+**400** | 400 response |  * Access-Control-Allow-Origin -  <br>  |
+**401** | 401 response |  * Access-Control-Allow-Origin -  <br>  |
+**403** | 403 response |  * Access-Control-Allow-Origin -  <br>  |
+**404** | 404 response |  * Access-Control-Allow-Origin -  <br>  |
+**500** | 500 response |  * Access-Control-Allow-Origin -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **getAvaliableBalance**
+> GetAvaliableBalanceResponseModel getAvaliableBalance()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:.DfsApiGetAvaliableBalanceRequest = {
+  // string
+  apiKey: "apiKey_example",
+};
+
+apiInstance.getAvaliableBalance(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**GetAvaliableBalanceResponseModel**
+
+### Authorization
+
+[proddfsswisscognitoAuthorizer029DC9BB](README.md#proddfsswisscognitoAuthorizer029DC9BB)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -1320,6 +1440,100 @@ apiInstance.v1StockdataSymbolYtdOptions(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **symbol** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **v1UserAssetsOptions**
+> void v1UserAssetsOptions()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:any = {};
+
+apiInstance.v1UserAssetsOptions(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | 200 response |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **v1UserBalanceOptions**
+> void v1UserBalanceOptions()
+
+
+### Example
+
+
+```typescript
+import {  } from 'DFS_Sdk';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .DfsApi(configuration);
+
+let body:any = {};
+
+apiInstance.v1UserBalanceOptions(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
 
 
 ### Return type

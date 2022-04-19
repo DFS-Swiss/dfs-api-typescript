@@ -10,6 +10,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
 import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
+import { GetAvaliableAssetsResponseModel } from '../models/GetAvaliableAssetsResponseModel';
+import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -67,6 +69,82 @@ export class DfsApiRequestFactory extends BaseAPIRequestFactory {
             contentType
         );
         requestContext.setBody(serializedBody);
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["proddfsswisscognitoAuthorizer029DC9BB"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public async getAvaliableAssets(apiKey: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiKey' is not null or undefined
+        if (apiKey === null || apiKey === undefined) {
+            throw new RequiredError("DfsApi", "getAvaliableAssets", "apiKey");
+        }
+
+
+        // Path Params
+        const localVarPath = '/v1/user/assets';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("apiKey", ObjectSerializer.serialize(apiKey, "string", ""));
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["proddfsswisscognitoAuthorizer029DC9BB"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public async getAvaliableBalance(apiKey: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'apiKey' is not null or undefined
+        if (apiKey === null || apiKey === undefined) {
+            throw new RequiredError("DfsApi", "getAvaliableBalance", "apiKey");
+        }
+
+
+        // Path Params
+        const localVarPath = '/v1/user/balance';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Header Params
+        requestContext.setHeaderParam("apiKey", ObjectSerializer.serialize(apiKey, "string", ""));
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -827,6 +905,50 @@ export class DfsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      */
+    public async v1UserAssetsOptions(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/v1/user/assets';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.OPTIONS);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     */
+    public async v1UserBalanceOptions(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/v1/user/balance';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.OPTIONS);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     */
     public async v1UserOptions(_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
@@ -949,6 +1071,134 @@ export class DfsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "BuyAssetResponseModel", ""
             ) as BuyAssetResponseModel;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getAvaliableAssets
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getAvaliableAssets(response: ResponseContext): Promise<GetAvaliableAssetsResponseModel > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: GetAvaliableAssetsResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableAssetsResponseModel", ""
+            ) as GetAvaliableAssetsResponseModel;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: GetAvaliableAssetsResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableAssetsResponseModel", ""
+            ) as GetAvaliableAssetsResponseModel;
+            throw new ApiException<GetAvaliableAssetsResponseModel>(400, "400 response", body, response.headers);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            const body: GetAvaliableAssetsResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableAssetsResponseModel", ""
+            ) as GetAvaliableAssetsResponseModel;
+            throw new ApiException<GetAvaliableAssetsResponseModel>(401, "401 response", body, response.headers);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: GetAvaliableAssetsResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableAssetsResponseModel", ""
+            ) as GetAvaliableAssetsResponseModel;
+            throw new ApiException<GetAvaliableAssetsResponseModel>(403, "403 response", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: GetAvaliableAssetsResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableAssetsResponseModel", ""
+            ) as GetAvaliableAssetsResponseModel;
+            throw new ApiException<GetAvaliableAssetsResponseModel>(404, "404 response", body, response.headers);
+        }
+        if (isCodeInRange("500", response.httpStatusCode)) {
+            const body: GetAvaliableAssetsResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableAssetsResponseModel", ""
+            ) as GetAvaliableAssetsResponseModel;
+            throw new ApiException<GetAvaliableAssetsResponseModel>(500, "500 response", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: GetAvaliableAssetsResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableAssetsResponseModel", ""
+            ) as GetAvaliableAssetsResponseModel;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to getAvaliableBalance
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async getAvaliableBalance(response: ResponseContext): Promise<GetAvaliableBalanceResponseModel > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: GetAvaliableBalanceResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableBalanceResponseModel", ""
+            ) as GetAvaliableBalanceResponseModel;
+            return body;
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: GetAvaliableBalanceResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableBalanceResponseModel", ""
+            ) as GetAvaliableBalanceResponseModel;
+            throw new ApiException<GetAvaliableBalanceResponseModel>(400, "400 response", body, response.headers);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            const body: GetAvaliableBalanceResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableBalanceResponseModel", ""
+            ) as GetAvaliableBalanceResponseModel;
+            throw new ApiException<GetAvaliableBalanceResponseModel>(401, "401 response", body, response.headers);
+        }
+        if (isCodeInRange("403", response.httpStatusCode)) {
+            const body: GetAvaliableBalanceResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableBalanceResponseModel", ""
+            ) as GetAvaliableBalanceResponseModel;
+            throw new ApiException<GetAvaliableBalanceResponseModel>(403, "403 response", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: GetAvaliableBalanceResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableBalanceResponseModel", ""
+            ) as GetAvaliableBalanceResponseModel;
+            throw new ApiException<GetAvaliableBalanceResponseModel>(404, "404 response", body, response.headers);
+        }
+        if (isCodeInRange("500", response.httpStatusCode)) {
+            const body: GetAvaliableBalanceResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableBalanceResponseModel", ""
+            ) as GetAvaliableBalanceResponseModel;
+            throw new ApiException<GetAvaliableBalanceResponseModel>(500, "500 response", body, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: GetAvaliableBalanceResponseModel = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "GetAvaliableBalanceResponseModel", ""
+            ) as GetAvaliableBalanceResponseModel;
             return body;
         }
 
@@ -1864,6 +2114,56 @@ export class DfsApiResponseProcessor {
      * @throws ApiException if the response code was not in [200, 299]
      */
      public async v1StockdataSymbolYtdOptions(response: ResponseContext): Promise<void > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            return;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: void = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "void", ""
+            ) as void;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to v1UserAssetsOptions
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async v1UserAssetsOptions(response: ResponseContext): Promise<void > {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            return;
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: void = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "void", ""
+            ) as void;
+            return body;
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to v1UserBalanceOptions
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async v1UserBalanceOptions(response: ResponseContext): Promise<void > {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             return;

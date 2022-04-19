@@ -4,6 +4,12 @@ import { Configuration} from '../configuration'
 
 import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
 import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
+import { GetAvaliableAssetsResponseModel } from '../models/GetAvaliableAssetsResponseModel';
+import { GetAvaliableAssetsResponseModelBody } from '../models/GetAvaliableAssetsResponseModelBody';
+import { GetAvaliableAssetsResponseModelBodyItems } from '../models/GetAvaliableAssetsResponseModelBodyItems';
+import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
+import { GetAvaliableBalanceResponseModelBody } from '../models/GetAvaliableBalanceResponseModelBody';
+import { GetAvaliableBalanceResponseModelBodyItem } from '../models/GetAvaliableBalanceResponseModelBodyItem';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
@@ -41,6 +47,24 @@ export interface DfsApiBuyAssetRequest {
      * @memberof DfsApibuyAsset
      */
     buyAssetRequestModel: BuyAssetRequestModel
+}
+
+export interface DfsApiGetAvaliableAssetsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApigetAvaliableAssets
+     */
+    apiKey: string
+}
+
+export interface DfsApiGetAvaliableBalanceRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApigetAvaliableBalance
+     */
+    apiKey: string
 }
 
 export interface DfsApiGetStockdataInfoRequest {
@@ -250,6 +274,12 @@ export interface DfsApiV1StockdataSymbolYtdOptionsRequest {
     symbol: string
 }
 
+export interface DfsApiV1UserAssetsOptionsRequest {
+}
+
+export interface DfsApiV1UserBalanceOptionsRequest {
+}
+
 export interface DfsApiV1UserOptionsRequest {
 }
 
@@ -280,6 +310,20 @@ export class ObjectDfsApi {
      */
     public buyAsset(param: DfsApiBuyAssetRequest, options?: Configuration): Promise<BuyAssetResponseModel> {
         return this.api.buyAsset(param.apiKey, param.buyAssetRequestModel,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public getAvaliableAssets(param: DfsApiGetAvaliableAssetsRequest, options?: Configuration): Promise<GetAvaliableAssetsResponseModel> {
+        return this.api.getAvaliableAssets(param.apiKey,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public getAvaliableBalance(param: DfsApiGetAvaliableBalanceRequest, options?: Configuration): Promise<GetAvaliableBalanceResponseModel> {
+        return this.api.getAvaliableBalance(param.apiKey,  options).toPromise();
     }
 
     /**
@@ -441,6 +485,20 @@ export class ObjectDfsApi {
      */
     public v1StockdataSymbolYtdOptions(param: DfsApiV1StockdataSymbolYtdOptionsRequest, options?: Configuration): Promise<void> {
         return this.api.v1StockdataSymbolYtdOptions(param.symbol,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public v1UserAssetsOptions(param: DfsApiV1UserAssetsOptionsRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.v1UserAssetsOptions( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public v1UserBalanceOptions(param: DfsApiV1UserBalanceOptionsRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.v1UserBalanceOptions( options).toPromise();
     }
 
     /**

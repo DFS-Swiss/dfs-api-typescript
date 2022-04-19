@@ -3,6 +3,8 @@ import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext } from '../http/http';
 import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
 import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
+import { GetAvaliableAssetsResponseModel } from '../models/GetAvaliableAssetsResponseModel';
+import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -16,6 +18,8 @@ import { SellAssetResponseModel } from '../models/SellAssetResponseModel';
 import { YtdStockdataResponseModel } from '../models/YtdStockdataResponseModel';
 export declare class DfsApiRequestFactory extends BaseAPIRequestFactory {
     buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Promise<RequestContext>;
+    getAvaliableAssets(apiKey: string, _options?: Configuration): Promise<RequestContext>;
+    getAvaliableBalance(apiKey: string, _options?: Configuration): Promise<RequestContext>;
     getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<RequestContext>;
     getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Promise<RequestContext>;
     listSymbols(apiKey: string, _options?: Configuration): Promise<RequestContext>;
@@ -39,11 +43,15 @@ export declare class DfsApiRequestFactory extends BaseAPIRequestFactory {
     v1StockdataSymbolMtdOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
     v1StockdataSymbolOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
     v1StockdataSymbolYtdOptions(symbol: string, _options?: Configuration): Promise<RequestContext>;
+    v1UserAssetsOptions(_options?: Configuration): Promise<RequestContext>;
+    v1UserBalanceOptions(_options?: Configuration): Promise<RequestContext>;
     v1UserOptions(_options?: Configuration): Promise<RequestContext>;
     ytdStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class DfsApiResponseProcessor {
     buyAsset(response: ResponseContext): Promise<BuyAssetResponseModel>;
+    getAvaliableAssets(response: ResponseContext): Promise<GetAvaliableAssetsResponseModel>;
+    getAvaliableBalance(response: ResponseContext): Promise<GetAvaliableBalanceResponseModel>;
     getStockdataInfo(response: ResponseContext): Promise<GetStockdataInfoResponseModel>;
     getStockdataLatest(response: ResponseContext): Promise<GetStockdataLatestResponseModel>;
     listSymbols(response: ResponseContext): Promise<ListSymbols>;
@@ -67,6 +75,8 @@ export declare class DfsApiResponseProcessor {
     v1StockdataSymbolMtdOptions(response: ResponseContext): Promise<void>;
     v1StockdataSymbolOptions(response: ResponseContext): Promise<void>;
     v1StockdataSymbolYtdOptions(response: ResponseContext): Promise<void>;
+    v1UserAssetsOptions(response: ResponseContext): Promise<void>;
+    v1UserBalanceOptions(response: ResponseContext): Promise<void>;
     v1UserOptions(response: ResponseContext): Promise<void>;
     ytdStockdata(response: ResponseContext): Promise<YtdStockdataResponseModel>;
 }

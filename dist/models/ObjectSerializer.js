@@ -13,6 +13,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
 __exportStar(require("./BuyAssetRequestModel"), exports);
 __exportStar(require("./BuyAssetResponseModel"), exports);
+__exportStar(require("./GetAvaliableAssetsResponseModel"), exports);
+__exportStar(require("./GetAvaliableAssetsResponseModelBody"), exports);
+__exportStar(require("./GetAvaliableAssetsResponseModelBodyItems"), exports);
+__exportStar(require("./GetAvaliableBalanceResponseModel"), exports);
+__exportStar(require("./GetAvaliableBalanceResponseModelBody"), exports);
+__exportStar(require("./GetAvaliableBalanceResponseModelBodyItem"), exports);
 __exportStar(require("./GetStockdataInfoResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);
@@ -35,6 +41,12 @@ __exportStar(require("./SellAssetResponseModel"), exports);
 __exportStar(require("./YtdStockdataResponseModel"), exports);
 var BuyAssetRequestModel_1 = require("./BuyAssetRequestModel");
 var BuyAssetResponseModel_1 = require("./BuyAssetResponseModel");
+var GetAvaliableAssetsResponseModel_1 = require("./GetAvaliableAssetsResponseModel");
+var GetAvaliableAssetsResponseModelBody_1 = require("./GetAvaliableAssetsResponseModelBody");
+var GetAvaliableAssetsResponseModelBodyItems_1 = require("./GetAvaliableAssetsResponseModelBodyItems");
+var GetAvaliableBalanceResponseModel_1 = require("./GetAvaliableBalanceResponseModel");
+var GetAvaliableBalanceResponseModelBody_1 = require("./GetAvaliableBalanceResponseModelBody");
+var GetAvaliableBalanceResponseModelBodyItem_1 = require("./GetAvaliableBalanceResponseModelBodyItem");
 var GetStockdataInfoResponseModel_1 = require("./GetStockdataInfoResponseModel");
 var GetStockdataInfoResponseModelBody_1 = require("./GetStockdataInfoResponseModelBody");
 var GetStockdataInfoResponseModelBodyItem_1 = require("./GetStockdataInfoResponseModelBodyItem");
@@ -74,6 +86,12 @@ var enumsMap = new Set([]);
 var typeMap = {
     "BuyAssetRequestModel": BuyAssetRequestModel_1.BuyAssetRequestModel,
     "BuyAssetResponseModel": BuyAssetResponseModel_1.BuyAssetResponseModel,
+    "GetAvaliableAssetsResponseModel": GetAvaliableAssetsResponseModel_1.GetAvaliableAssetsResponseModel,
+    "GetAvaliableAssetsResponseModelBody": GetAvaliableAssetsResponseModelBody_1.GetAvaliableAssetsResponseModelBody,
+    "GetAvaliableAssetsResponseModelBodyItems": GetAvaliableAssetsResponseModelBodyItems_1.GetAvaliableAssetsResponseModelBodyItems,
+    "GetAvaliableBalanceResponseModel": GetAvaliableBalanceResponseModel_1.GetAvaliableBalanceResponseModel,
+    "GetAvaliableBalanceResponseModelBody": GetAvaliableBalanceResponseModelBody_1.GetAvaliableBalanceResponseModelBody,
+    "GetAvaliableBalanceResponseModelBodyItem": GetAvaliableBalanceResponseModelBodyItem_1.GetAvaliableBalanceResponseModelBodyItem,
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel_1.GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody_1.GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem_1.GetStockdataInfoResponseModelBodyItem,

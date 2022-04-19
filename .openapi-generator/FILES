@@ -14,6 +14,12 @@ index.ts
 middleware.ts
 models/BuyAssetRequestModel.ts
 models/BuyAssetResponseModel.ts
+models/GetAvaliableAssetsResponseModel.ts
+models/GetAvaliableAssetsResponseModelBody.ts
+models/GetAvaliableAssetsResponseModelBodyItems.ts
+models/GetAvaliableBalanceResponseModel.ts
+models/GetAvaliableBalanceResponseModelBody.ts
+models/GetAvaliableBalanceResponseModelBodyItem.ts
 models/GetStockdataInfoResponseModel.ts
 models/GetStockdataInfoResponseModelBody.ts
 models/GetStockdataInfoResponseModelBodyItem.ts

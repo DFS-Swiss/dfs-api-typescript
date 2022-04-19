@@ -2,6 +2,8 @@ import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
 import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
 import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
+import { GetAvaliableAssetsResponseModel } from '../models/GetAvaliableAssetsResponseModel';
+import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -20,6 +22,8 @@ export declare class ObservableDfsApi {
     private configuration;
     constructor(configuration: Configuration, requestFactory?: DfsApiRequestFactory, responseProcessor?: DfsApiResponseProcessor);
     buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Observable<BuyAssetResponseModel>;
+    getAvaliableAssets(apiKey: string, _options?: Configuration): Observable<GetAvaliableAssetsResponseModel>;
+    getAvaliableBalance(apiKey: string, _options?: Configuration): Observable<GetAvaliableBalanceResponseModel>;
     getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Observable<GetStockdataInfoResponseModel>;
     getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Observable<GetStockdataLatestResponseModel>;
     listSymbols(apiKey: string, _options?: Configuration): Observable<ListSymbols>;
@@ -43,6 +47,8 @@ export declare class ObservableDfsApi {
     v1StockdataSymbolMtdOptions(symbol: string, _options?: Configuration): Observable<void>;
     v1StockdataSymbolOptions(symbol: string, _options?: Configuration): Observable<void>;
     v1StockdataSymbolYtdOptions(symbol: string, _options?: Configuration): Observable<void>;
+    v1UserAssetsOptions(_options?: Configuration): Observable<void>;
+    v1UserBalanceOptions(_options?: Configuration): Observable<void>;
     v1UserOptions(_options?: Configuration): Observable<void>;
     ytdStockdata(apiKey: string, symbol: string, _options?: Configuration): Observable<YtdStockdataResponseModel>;
 }

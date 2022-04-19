@@ -1,5 +1,11 @@
 export * from './BuyAssetRequestModel';
 export * from './BuyAssetResponseModel';
+export * from './GetAvaliableAssetsResponseModel';
+export * from './GetAvaliableAssetsResponseModelBody';
+export * from './GetAvaliableAssetsResponseModelBodyItems';
+export * from './GetAvaliableBalanceResponseModel';
+export * from './GetAvaliableBalanceResponseModelBody';
+export * from './GetAvaliableBalanceResponseModelBodyItem';
 export * from './GetStockdataInfoResponseModel';
 export * from './GetStockdataInfoResponseModelBody';
 export * from './GetStockdataInfoResponseModelBodyItem';
@@ -23,6 +29,12 @@ export * from './YtdStockdataResponseModel';
 
 import { BuyAssetRequestModel } from './BuyAssetRequestModel';
 import { BuyAssetResponseModel } from './BuyAssetResponseModel';
+import { GetAvaliableAssetsResponseModel } from './GetAvaliableAssetsResponseModel';
+import { GetAvaliableAssetsResponseModelBody } from './GetAvaliableAssetsResponseModelBody';
+import { GetAvaliableAssetsResponseModelBodyItems } from './GetAvaliableAssetsResponseModelBodyItems';
+import { GetAvaliableBalanceResponseModel } from './GetAvaliableBalanceResponseModel';
+import { GetAvaliableBalanceResponseModelBody } from './GetAvaliableBalanceResponseModelBody';
+import { GetAvaliableBalanceResponseModelBodyItem } from './GetAvaliableBalanceResponseModelBodyItem';
 import { GetStockdataInfoResponseModel } from './GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from './GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from './GetStockdataInfoResponseModelBodyItem';
@@ -69,6 +81,12 @@ let enumsMap: Set<string> = new Set<string>([
 let typeMap: {[index: string]: any} = {
     "BuyAssetRequestModel": BuyAssetRequestModel,
     "BuyAssetResponseModel": BuyAssetResponseModel,
+    "GetAvaliableAssetsResponseModel": GetAvaliableAssetsResponseModel,
+    "GetAvaliableAssetsResponseModelBody": GetAvaliableAssetsResponseModelBody,
+    "GetAvaliableAssetsResponseModelBodyItems": GetAvaliableAssetsResponseModelBodyItems,
+    "GetAvaliableBalanceResponseModel": GetAvaliableBalanceResponseModel,
+    "GetAvaliableBalanceResponseModelBody": GetAvaliableBalanceResponseModelBody,
+    "GetAvaliableBalanceResponseModelBodyItem": GetAvaliableBalanceResponseModelBodyItem,
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem,

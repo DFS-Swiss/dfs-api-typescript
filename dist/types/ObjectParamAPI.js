@@ -9,6 +9,12 @@ var ObjectDfsApi = (function () {
     ObjectDfsApi.prototype.buyAsset = function (param, options) {
         return this.api.buyAsset(param.apiKey, param.buyAssetRequestModel, options).toPromise();
     };
+    ObjectDfsApi.prototype.getAvaliableAssets = function (param, options) {
+        return this.api.getAvaliableAssets(param.apiKey, options).toPromise();
+    };
+    ObjectDfsApi.prototype.getAvaliableBalance = function (param, options) {
+        return this.api.getAvaliableBalance(param.apiKey, options).toPromise();
+    };
     ObjectDfsApi.prototype.getStockdataInfo = function (param, options) {
         return this.api.getStockdataInfo(param.symbol, param.apiKey, options).toPromise();
     };
@@ -84,6 +90,14 @@ var ObjectDfsApi = (function () {
     };
     ObjectDfsApi.prototype.v1StockdataSymbolYtdOptions = function (param, options) {
         return this.api.v1StockdataSymbolYtdOptions(param.symbol, options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1UserAssetsOptions = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.v1UserAssetsOptions(options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1UserBalanceOptions = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.v1UserBalanceOptions(options).toPromise();
     };
     ObjectDfsApi.prototype.v1UserOptions = function (param, options) {
         if (param === void 0) { param = {}; }

@@ -12,6 +12,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./BuyAssetRequestModel"), exports);
 __exportStar(require("./BuyAssetResponseModel"), exports);
+__exportStar(require("./GetAvaliableAssetsResponseModel"), exports);
+__exportStar(require("./GetAvaliableAssetsResponseModelBody"), exports);
+__exportStar(require("./GetAvaliableAssetsResponseModelBodyItems"), exports);
+__exportStar(require("./GetAvaliableBalanceResponseModel"), exports);
+__exportStar(require("./GetAvaliableBalanceResponseModelBody"), exports);
+__exportStar(require("./GetAvaliableBalanceResponseModelBodyItem"), exports);
 __exportStar(require("./GetStockdataInfoResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);

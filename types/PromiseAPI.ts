@@ -4,6 +4,12 @@ import { Configuration} from '../configuration'
 
 import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
 import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
+import { GetAvaliableAssetsResponseModel } from '../models/GetAvaliableAssetsResponseModel';
+import { GetAvaliableAssetsResponseModelBody } from '../models/GetAvaliableAssetsResponseModelBody';
+import { GetAvaliableAssetsResponseModelBodyItems } from '../models/GetAvaliableAssetsResponseModelBodyItems';
+import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
+import { GetAvaliableBalanceResponseModelBody } from '../models/GetAvaliableBalanceResponseModelBody';
+import { GetAvaliableBalanceResponseModelBodyItem } from '../models/GetAvaliableBalanceResponseModelBodyItem';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
@@ -44,6 +50,22 @@ export class PromiseDfsApi {
      */
     public buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Promise<BuyAssetResponseModel> {
         const result = this.api.buyAsset(apiKey, buyAssetRequestModel, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public getAvaliableAssets(apiKey: string, _options?: Configuration): Promise<GetAvaliableAssetsResponseModel> {
+        const result = this.api.getAvaliableAssets(apiKey, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public getAvaliableBalance(apiKey: string, _options?: Configuration): Promise<GetAvaliableBalanceResponseModel> {
+        const result = this.api.getAvaliableBalance(apiKey, _options);
         return result.toPromise();
     }
 
@@ -228,6 +250,20 @@ export class PromiseDfsApi {
      */
     public v1StockdataSymbolYtdOptions(symbol: string, _options?: Configuration): Promise<void> {
         const result = this.api.v1StockdataSymbolYtdOptions(symbol, _options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public v1UserAssetsOptions(_options?: Configuration): Promise<void> {
+        const result = this.api.v1UserAssetsOptions(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public v1UserBalanceOptions(_options?: Configuration): Promise<void> {
+        const result = this.api.v1UserBalanceOptions(_options);
         return result.toPromise();
     }
 
