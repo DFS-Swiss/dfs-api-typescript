@@ -3,6 +3,7 @@ import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
 import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetAvaliableAssetsResponseModel } from '../models/GetAvaliableAssetsResponseModel';
 import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
+import { GetBalanceHistoryResponseModel } from '../models/GetBalanceHistoryResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -23,6 +24,9 @@ export interface DfsApiGetAvaliableAssetsRequest {
     apiKey: string;
 }
 export interface DfsApiGetAvaliableBalanceRequest {
+    apiKey: string;
+}
+export interface DfsApiGetBalanceHistoryRequest {
     apiKey: string;
 }
 export interface DfsApiGetStockdataInfoRequest {
@@ -96,6 +100,8 @@ export interface DfsApiV1StockdataSymbolYtdOptionsRequest {
 }
 export interface DfsApiV1UserAssetsOptionsRequest {
 }
+export interface DfsApiV1UserBalanceHistoryOptionsRequest {
+}
 export interface DfsApiV1UserBalanceOptionsRequest {
 }
 export interface DfsApiV1UserOptionsRequest {
@@ -110,6 +116,7 @@ export declare class ObjectDfsApi {
     buyAsset(param: DfsApiBuyAssetRequest, options?: Configuration): Promise<BuyAssetResponseModel>;
     getAvaliableAssets(param: DfsApiGetAvaliableAssetsRequest, options?: Configuration): Promise<GetAvaliableAssetsResponseModel>;
     getAvaliableBalance(param: DfsApiGetAvaliableBalanceRequest, options?: Configuration): Promise<GetAvaliableBalanceResponseModel>;
+    getBalanceHistory(param: DfsApiGetBalanceHistoryRequest, options?: Configuration): Promise<GetBalanceHistoryResponseModel>;
     getStockdataInfo(param: DfsApiGetStockdataInfoRequest, options?: Configuration): Promise<GetStockdataInfoResponseModel>;
     getStockdataLatest(param: DfsApiGetStockdataLatestRequest, options?: Configuration): Promise<GetStockdataLatestResponseModel>;
     listSymbols(param: DfsApiListSymbolsRequest, options?: Configuration): Promise<ListSymbols>;
@@ -134,6 +141,7 @@ export declare class ObjectDfsApi {
     v1StockdataSymbolOptions(param: DfsApiV1StockdataSymbolOptionsRequest, options?: Configuration): Promise<void>;
     v1StockdataSymbolYtdOptions(param: DfsApiV1StockdataSymbolYtdOptionsRequest, options?: Configuration): Promise<void>;
     v1UserAssetsOptions(param?: DfsApiV1UserAssetsOptionsRequest, options?: Configuration): Promise<void>;
+    v1UserBalanceHistoryOptions(param?: DfsApiV1UserBalanceHistoryOptionsRequest, options?: Configuration): Promise<void>;
     v1UserBalanceOptions(param?: DfsApiV1UserBalanceOptionsRequest, options?: Configuration): Promise<void>;
     v1UserOptions(param?: DfsApiV1UserOptionsRequest, options?: Configuration): Promise<void>;
     ytdStockdata(param: DfsApiYtdStockdataRequest, options?: Configuration): Promise<YtdStockdataResponseModel>;

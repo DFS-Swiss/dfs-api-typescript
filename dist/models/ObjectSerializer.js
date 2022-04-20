@@ -19,6 +19,8 @@ __exportStar(require("./GetAvaliableAssetsResponseModelBodyItems"), exports);
 __exportStar(require("./GetAvaliableBalanceResponseModel"), exports);
 __exportStar(require("./GetAvaliableBalanceResponseModelBody"), exports);
 __exportStar(require("./GetAvaliableBalanceResponseModelBodyItem"), exports);
+__exportStar(require("./GetBalanceHistoryResponseModel"), exports);
+__exportStar(require("./GetBalanceHistoryResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);
@@ -47,6 +49,8 @@ var GetAvaliableAssetsResponseModelBodyItems_1 = require("./GetAvaliableAssetsRe
 var GetAvaliableBalanceResponseModel_1 = require("./GetAvaliableBalanceResponseModel");
 var GetAvaliableBalanceResponseModelBody_1 = require("./GetAvaliableBalanceResponseModelBody");
 var GetAvaliableBalanceResponseModelBodyItem_1 = require("./GetAvaliableBalanceResponseModelBodyItem");
+var GetBalanceHistoryResponseModel_1 = require("./GetBalanceHistoryResponseModel");
+var GetBalanceHistoryResponseModelBody_1 = require("./GetBalanceHistoryResponseModelBody");
 var GetStockdataInfoResponseModel_1 = require("./GetStockdataInfoResponseModel");
 var GetStockdataInfoResponseModelBody_1 = require("./GetStockdataInfoResponseModelBody");
 var GetStockdataInfoResponseModelBodyItem_1 = require("./GetStockdataInfoResponseModelBodyItem");
@@ -92,6 +96,8 @@ var typeMap = {
     "GetAvaliableBalanceResponseModel": GetAvaliableBalanceResponseModel_1.GetAvaliableBalanceResponseModel,
     "GetAvaliableBalanceResponseModelBody": GetAvaliableBalanceResponseModelBody_1.GetAvaliableBalanceResponseModelBody,
     "GetAvaliableBalanceResponseModelBodyItem": GetAvaliableBalanceResponseModelBodyItem_1.GetAvaliableBalanceResponseModelBodyItem,
+    "GetBalanceHistoryResponseModel": GetBalanceHistoryResponseModel_1.GetBalanceHistoryResponseModel,
+    "GetBalanceHistoryResponseModelBody": GetBalanceHistoryResponseModelBody_1.GetBalanceHistoryResponseModelBody,
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel_1.GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody_1.GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem_1.GetStockdataInfoResponseModelBodyItem,

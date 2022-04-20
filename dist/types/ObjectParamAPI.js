@@ -15,6 +15,9 @@ var ObjectDfsApi = (function () {
     ObjectDfsApi.prototype.getAvaliableBalance = function (param, options) {
         return this.api.getAvaliableBalance(param.apiKey, options).toPromise();
     };
+    ObjectDfsApi.prototype.getBalanceHistory = function (param, options) {
+        return this.api.getBalanceHistory(param.apiKey, options).toPromise();
+    };
     ObjectDfsApi.prototype.getStockdataInfo = function (param, options) {
         return this.api.getStockdataInfo(param.symbol, param.apiKey, options).toPromise();
     };
@@ -94,6 +97,10 @@ var ObjectDfsApi = (function () {
     ObjectDfsApi.prototype.v1UserAssetsOptions = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.v1UserAssetsOptions(options).toPromise();
+    };
+    ObjectDfsApi.prototype.v1UserBalanceHistoryOptions = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.v1UserBalanceHistoryOptions(options).toPromise();
     };
     ObjectDfsApi.prototype.v1UserBalanceOptions = function (param, options) {
         if (param === void 0) { param = {}; }

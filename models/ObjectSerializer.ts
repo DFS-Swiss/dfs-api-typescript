@@ -6,6 +6,8 @@ export * from './GetAvaliableAssetsResponseModelBodyItems';
 export * from './GetAvaliableBalanceResponseModel';
 export * from './GetAvaliableBalanceResponseModelBody';
 export * from './GetAvaliableBalanceResponseModelBodyItem';
+export * from './GetBalanceHistoryResponseModel';
+export * from './GetBalanceHistoryResponseModelBody';
 export * from './GetStockdataInfoResponseModel';
 export * from './GetStockdataInfoResponseModelBody';
 export * from './GetStockdataInfoResponseModelBodyItem';
@@ -35,6 +37,8 @@ import { GetAvaliableAssetsResponseModelBodyItems } from './GetAvaliableAssetsRe
 import { GetAvaliableBalanceResponseModel } from './GetAvaliableBalanceResponseModel';
 import { GetAvaliableBalanceResponseModelBody } from './GetAvaliableBalanceResponseModelBody';
 import { GetAvaliableBalanceResponseModelBodyItem } from './GetAvaliableBalanceResponseModelBodyItem';
+import { GetBalanceHistoryResponseModel } from './GetBalanceHistoryResponseModel';
+import { GetBalanceHistoryResponseModelBody } from './GetBalanceHistoryResponseModelBody';
 import { GetStockdataInfoResponseModel } from './GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from './GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from './GetStockdataInfoResponseModelBodyItem';
@@ -87,6 +91,8 @@ let typeMap: {[index: string]: any} = {
     "GetAvaliableBalanceResponseModel": GetAvaliableBalanceResponseModel,
     "GetAvaliableBalanceResponseModelBody": GetAvaliableBalanceResponseModelBody,
     "GetAvaliableBalanceResponseModelBodyItem": GetAvaliableBalanceResponseModelBodyItem,
+    "GetBalanceHistoryResponseModel": GetBalanceHistoryResponseModel,
+    "GetBalanceHistoryResponseModelBody": GetBalanceHistoryResponseModelBody,
     "GetStockdataInfoResponseModel": GetStockdataInfoResponseModel,
     "GetStockdataInfoResponseModelBody": GetStockdataInfoResponseModelBody,
     "GetStockdataInfoResponseModelBodyItem": GetStockdataInfoResponseModelBodyItem,

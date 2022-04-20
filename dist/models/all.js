@@ -18,6 +18,8 @@ __exportStar(require("./GetAvaliableAssetsResponseModelBodyItems"), exports);
 __exportStar(require("./GetAvaliableBalanceResponseModel"), exports);
 __exportStar(require("./GetAvaliableBalanceResponseModelBody"), exports);
 __exportStar(require("./GetAvaliableBalanceResponseModelBodyItem"), exports);
+__exportStar(require("./GetBalanceHistoryResponseModel"), exports);
+__exportStar(require("./GetBalanceHistoryResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModel"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBody"), exports);
 __exportStar(require("./GetStockdataInfoResponseModelBodyItem"), exports);

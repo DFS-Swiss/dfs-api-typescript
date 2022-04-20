@@ -10,37 +10,24 @@
  * Do not edit the class manually.
  */
 
+import { GetAvaliableBalanceResponseModelBodyItem } from './GetAvaliableBalanceResponseModelBodyItem';
 import { HttpFile } from '../http/http';
 
-export class BuyAssetRequestModel {
-    'symbol': string;
-    'amountToSpend'?: number;
-    'tokenToBuy'?: number;
+export class GetBalanceHistoryResponseModelBody {
+    'items'?: Array<GetAvaliableBalanceResponseModelBodyItem>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "symbol",
-            "baseName": "symbol",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "amountToSpend",
-            "baseName": "amountToSpend",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "tokenToBuy",
-            "baseName": "tokenToBuy",
-            "type": "number",
+            "name": "items",
+            "baseName": "items",
+            "type": "Array<GetAvaliableBalanceResponseModelBodyItem>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return BuyAssetRequestModel.attributeTypeMap;
+        return GetBalanceHistoryResponseModelBody.attributeTypeMap;
     }
 
     public constructor() {

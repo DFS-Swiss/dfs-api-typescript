@@ -20,6 +20,8 @@ models/GetAvaliableAssetsResponseModelBodyItems.ts
 models/GetAvaliableBalanceResponseModel.ts
 models/GetAvaliableBalanceResponseModelBody.ts
 models/GetAvaliableBalanceResponseModelBodyItem.ts
+models/GetBalanceHistoryResponseModel.ts
+models/GetBalanceHistoryResponseModelBody.ts
 models/GetStockdataInfoResponseModel.ts
 models/GetStockdataInfoResponseModelBody.ts
 models/GetStockdataInfoResponseModelBodyItem.ts

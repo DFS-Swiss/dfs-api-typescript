@@ -18,6 +18,10 @@ var PromiseDfsApi = (function () {
         var result = this.api.getAvaliableBalance(apiKey, _options);
         return result.toPromise();
     };
+    PromiseDfsApi.prototype.getBalanceHistory = function (apiKey, _options) {
+        var result = this.api.getBalanceHistory(apiKey, _options);
+        return result.toPromise();
+    };
     PromiseDfsApi.prototype.getStockdataInfo = function (symbol, apiKey, _options) {
         var result = this.api.getStockdataInfo(symbol, apiKey, _options);
         return result.toPromise();
@@ -112,6 +116,10 @@ var PromiseDfsApi = (function () {
     };
     PromiseDfsApi.prototype.v1UserAssetsOptions = function (_options) {
         var result = this.api.v1UserAssetsOptions(_options);
+        return result.toPromise();
+    };
+    PromiseDfsApi.prototype.v1UserBalanceHistoryOptions = function (_options) {
+        var result = this.api.v1UserBalanceHistoryOptions(_options);
         return result.toPromise();
     };
     PromiseDfsApi.prototype.v1UserBalanceOptions = function (_options) {

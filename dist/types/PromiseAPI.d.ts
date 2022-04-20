@@ -3,6 +3,7 @@ import { BuyAssetRequestModel } from '../models/BuyAssetRequestModel';
 import { BuyAssetResponseModel } from '../models/BuyAssetResponseModel';
 import { GetAvaliableAssetsResponseModel } from '../models/GetAvaliableAssetsResponseModel';
 import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
+import { GetBalanceHistoryResponseModel } from '../models/GetBalanceHistoryResponseModel';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataLatestResponseModel } from '../models/GetStockdataLatestResponseModel';
 import { GetUserResponseModel } from '../models/GetUserResponseModel';
@@ -21,6 +22,7 @@ export declare class PromiseDfsApi {
     buyAsset(apiKey: string, buyAssetRequestModel: BuyAssetRequestModel, _options?: Configuration): Promise<BuyAssetResponseModel>;
     getAvaliableAssets(apiKey: string, _options?: Configuration): Promise<GetAvaliableAssetsResponseModel>;
     getAvaliableBalance(apiKey: string, _options?: Configuration): Promise<GetAvaliableBalanceResponseModel>;
+    getBalanceHistory(apiKey: string, _options?: Configuration): Promise<GetBalanceHistoryResponseModel>;
     getStockdataInfo(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataInfoResponseModel>;
     getStockdataLatest(symbol: string, apiKey: string, _options?: Configuration): Promise<GetStockdataLatestResponseModel>;
     listSymbols(apiKey: string, _options?: Configuration): Promise<ListSymbols>;
@@ -45,6 +47,7 @@ export declare class PromiseDfsApi {
     v1StockdataSymbolOptions(symbol: string, _options?: Configuration): Promise<void>;
     v1StockdataSymbolYtdOptions(symbol: string, _options?: Configuration): Promise<void>;
     v1UserAssetsOptions(_options?: Configuration): Promise<void>;
+    v1UserBalanceHistoryOptions(_options?: Configuration): Promise<void>;
     v1UserBalanceOptions(_options?: Configuration): Promise<void>;
     v1UserOptions(_options?: Configuration): Promise<void>;
     ytdStockdata(apiKey: string, symbol: string, _options?: Configuration): Promise<YtdStockdataResponseModel>;

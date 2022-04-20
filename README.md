@@ -1,4 +1,4 @@
-## dfs_sdk@2022-04-19T11:06:16Z
+## dfs_sdk@2022-04-20T11:42:17Z
 
 This generator creates TypeScript/JavaScript client that utilizes fetch-api.
 
@@ -21,7 +21,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install dfs_sdk@2022-04-19T11:06:16Z --save
+npm install dfs_sdk@2022-04-20T11:42:17Z --save
 ```
 
 _unPublished (not recommended):_

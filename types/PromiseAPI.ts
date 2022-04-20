@@ -10,6 +10,8 @@ import { GetAvaliableAssetsResponseModelBodyItems } from '../models/GetAvaliable
 import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
 import { GetAvaliableBalanceResponseModelBody } from '../models/GetAvaliableBalanceResponseModelBody';
 import { GetAvaliableBalanceResponseModelBodyItem } from '../models/GetAvaliableBalanceResponseModelBodyItem';
+import { GetBalanceHistoryResponseModel } from '../models/GetBalanceHistoryResponseModel';
+import { GetBalanceHistoryResponseModelBody } from '../models/GetBalanceHistoryResponseModelBody';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
@@ -66,6 +68,14 @@ export class PromiseDfsApi {
      */
     public getAvaliableBalance(apiKey: string, _options?: Configuration): Promise<GetAvaliableBalanceResponseModel> {
         const result = this.api.getAvaliableBalance(apiKey, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public getBalanceHistory(apiKey: string, _options?: Configuration): Promise<GetBalanceHistoryResponseModel> {
+        const result = this.api.getBalanceHistory(apiKey, _options);
         return result.toPromise();
     }
 
@@ -257,6 +267,13 @@ export class PromiseDfsApi {
      */
     public v1UserAssetsOptions(_options?: Configuration): Promise<void> {
         const result = this.api.v1UserAssetsOptions(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public v1UserBalanceHistoryOptions(_options?: Configuration): Promise<void> {
+        const result = this.api.v1UserBalanceHistoryOptions(_options);
         return result.toPromise();
     }
 

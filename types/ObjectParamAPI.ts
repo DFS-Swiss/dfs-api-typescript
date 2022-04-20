@@ -10,6 +10,8 @@ import { GetAvaliableAssetsResponseModelBodyItems } from '../models/GetAvaliable
 import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
 import { GetAvaliableBalanceResponseModelBody } from '../models/GetAvaliableBalanceResponseModelBody';
 import { GetAvaliableBalanceResponseModelBodyItem } from '../models/GetAvaliableBalanceResponseModelBodyItem';
+import { GetBalanceHistoryResponseModel } from '../models/GetBalanceHistoryResponseModel';
+import { GetBalanceHistoryResponseModelBody } from '../models/GetBalanceHistoryResponseModelBody';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
@@ -63,6 +65,15 @@ export interface DfsApiGetAvaliableBalanceRequest {
      * 
      * @type string
      * @memberof DfsApigetAvaliableBalance
+     */
+    apiKey: string
+}
+
+export interface DfsApiGetBalanceHistoryRequest {
+    /**
+     * 
+     * @type string
+     * @memberof DfsApigetBalanceHistory
      */
     apiKey: string
 }
@@ -277,6 +288,9 @@ export interface DfsApiV1StockdataSymbolYtdOptionsRequest {
 export interface DfsApiV1UserAssetsOptionsRequest {
 }
 
+export interface DfsApiV1UserBalanceHistoryOptionsRequest {
+}
+
 export interface DfsApiV1UserBalanceOptionsRequest {
 }
 
@@ -324,6 +338,13 @@ export class ObjectDfsApi {
      */
     public getAvaliableBalance(param: DfsApiGetAvaliableBalanceRequest, options?: Configuration): Promise<GetAvaliableBalanceResponseModel> {
         return this.api.getAvaliableBalance(param.apiKey,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public getBalanceHistory(param: DfsApiGetBalanceHistoryRequest, options?: Configuration): Promise<GetBalanceHistoryResponseModel> {
+        return this.api.getBalanceHistory(param.apiKey,  options).toPromise();
     }
 
     /**
@@ -492,6 +513,13 @@ export class ObjectDfsApi {
      */
     public v1UserAssetsOptions(param: DfsApiV1UserAssetsOptionsRequest = {}, options?: Configuration): Promise<void> {
         return this.api.v1UserAssetsOptions( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public v1UserBalanceHistoryOptions(param: DfsApiV1UserBalanceHistoryOptionsRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.v1UserBalanceHistoryOptions( options).toPromise();
     }
 
     /**

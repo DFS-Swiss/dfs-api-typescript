@@ -11,6 +11,8 @@ import { GetAvaliableAssetsResponseModelBodyItems } from '../models/GetAvaliable
 import { GetAvaliableBalanceResponseModel } from '../models/GetAvaliableBalanceResponseModel';
 import { GetAvaliableBalanceResponseModelBody } from '../models/GetAvaliableBalanceResponseModelBody';
 import { GetAvaliableBalanceResponseModelBodyItem } from '../models/GetAvaliableBalanceResponseModelBodyItem';
+import { GetBalanceHistoryResponseModel } from '../models/GetBalanceHistoryResponseModel';
+import { GetBalanceHistoryResponseModelBody } from '../models/GetBalanceHistoryResponseModelBody';
 import { GetStockdataInfoResponseModel } from '../models/GetStockdataInfoResponseModel';
 import { GetStockdataInfoResponseModelBody } from '../models/GetStockdataInfoResponseModelBody';
 import { GetStockdataInfoResponseModelBodyItem } from '../models/GetStockdataInfoResponseModelBodyItem';
@@ -112,6 +114,28 @@ export class ObservableDfsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAvaliableBalance(rsp)));
+            }));
+    }
+
+    /**
+     * @param apiKey 
+     */
+    public getBalanceHistory(apiKey: string, _options?: Configuration): Observable<GetBalanceHistoryResponseModel> {
+        const requestContextPromise = this.requestFactory.getBalanceHistory(apiKey, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getBalanceHistory(rsp)));
             }));
     }
 
@@ -639,6 +663,27 @@ export class ObservableDfsApi {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
                 return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1UserAssetsOptions(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public v1UserBalanceHistoryOptions(_options?: Configuration): Observable<void> {
+        const requestContextPromise = this.requestFactory.v1UserBalanceHistoryOptions(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.v1UserBalanceHistoryOptions(rsp)));
             }));
     }
 
